@@ -2,9 +2,13 @@
 
 ![Alpha](https://img.shields.io/badge/status-alpha-orange)
 
-> ⚠️ **Warning:** This project is in alpha. Features are incomplete, and bugs are likely. Use at your own risk!
+> ⚠️ **Warning:** This project is in early alpha. Features are incomplete, and bugs are likely. Use at your own risk!
 
 A simple web-based Honkai: Star Rail calculator to estimate how many pulls, passes, and currency you need to reach soft or hard pity thresholds, including cost estimates based on bonuses.
+
+## Demo
+
+Try the live calculator here: [hsr-calculator.netlify.app](https://hsr-calculator.netlify.app/)
 
 ## Features
 
@@ -22,6 +26,7 @@ A simple web-based Honkai: Star Rail calculator to estimate how many pulls, pass
 
 ## Future Improvements
 
+- [ ] Account for when required jades exceeds the $99.99 USD oneric pack.
 - [ ] Add input validation and error handling.
 - [ ] Add a dark mode option.
 - [ ] Add oneric prices in different currencies.

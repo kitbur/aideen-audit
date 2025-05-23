@@ -8,7 +8,7 @@ A simple web-based Honkai: Star Rail calculator to estimate how many pulls, pass
 
 ## Demo
 
-Try the live calculator here: [hsr-calculator.netlify.app](https://hsr-calculator.netlify.app/)
+Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calculator/)
 
 ## Features
 

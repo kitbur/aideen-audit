@@ -38,7 +38,7 @@ function calculatePullsUntilPity({ hardPity, softPity }) {
 
 // Calculate the total number of pulls the user currently has (special passes + jades converted to passes)
 function calculateTotalPasses() {
-    const totalPasses = (Number(JADES.value) / 160) + Number(SPECIAL_PASSES.value)
+    const totalPasses = Math.floor((Number(JADES.value) / 160) + Number(SPECIAL_PASSES.value))
     return { totalPasses }
 }
 

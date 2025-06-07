@@ -8,6 +8,8 @@ A simple web-based Honkai: Star Rail calculator to estimate how many pulls, pass
 
 ## Demo
 
+![Demo Gif](img/demo.gif)
+
 Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calculator/)
 
 ## Features

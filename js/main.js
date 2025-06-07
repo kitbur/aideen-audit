@@ -44,7 +44,11 @@ CALCULATE_BUTTON.addEventListener('click', (event) => {
 
 
 function displayResults(passes, amountNeeded, onericCosts) {
-    PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>${passes.totalPasses}</span> available pulls.`;
+    if (passes.totalPasses === 1) {
+        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>1</span> available pull.`;
+    } else {
+        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>${passes.totalPasses}</span> available pulls.`;
+    }
     PASSES_SOFT_DISPLAY.textContent = amountNeeded.neededPassesSoftPity;
     PASSES_HARD_DISPLAY.textContent = amountNeeded.neededPassesHardPity;
     JADES_SOFT_DISPLAY.textContent = amountNeeded.neededJadesSoftPity;

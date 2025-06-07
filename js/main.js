@@ -1,134 +1,124 @@
-// Get references to UI input elements
-const CALCULATE_BUTTON = document.querySelector('#calculate')
-const CURRENT_PITY = document.querySelector('#currentPity')
-const GUARANTEED = document.querySelector('#guaranteed')
-const SPECIAL_PASSES = document.querySelector('#specialPasses')
-const JADES = document.querySelector('#jades')
-const ONERIC_BONUS = document.querySelector('#onericBonus')
-const OUTPUT = document.querySelector('#output')
+// Get references to input elements
+const CALCULATE_BUTTON = document.querySelector('#calculate');
+const CURRENT_PITY = document.querySelector('#currentPity');
+const GUARANTEED = document.querySelector('#guaranteed');
+const SPECIAL_PASSES = document.querySelector('#specialPasses');
+const JADES = document.querySelector('#jades');
+const ONERIC_BONUS = document.querySelector('#onericBonus');
 
-// Hide the results output area when the page loads
-OUTPUT.style.display = 'none'
+// Get references to static elements
+const resultCells = document.querySelectorAll('.resultValue');
+const gif = document.querySelector('#gifContainer img');
+
+// Get references to output elements
+const PULLS_TOTAL_DISPLAY = document.querySelector('#pullsTotal');
+const PASSES_SOFT_DISPLAY = document.querySelector('#passesSoft');
+const PASSES_HARD_DISPLAY = document.querySelector('#passesHard');
+const JADES_SOFT_DISPLAY = document.querySelector('#jadesSoft');
+const JADES_HARD_DISPLAY = document.querySelector('#jadesHard');
+const ONERIC_SOFT_DISPLAY = document.querySelector('#onericSoft');
+const ONERIC_HARD_DISPLAY = document.querySelector('#onericHard');
+
+// Resets gif animation when `calculate` is clicked
+gif.addEventListener('animationend', () => {
+    gif.classList.remove('shake');
+});
 
 // Run calculations and update the UI when the `calculate` button is clicked
-CALCULATE_BUTTON.addEventListener('click', () => {
-    const pityTotals = checkPityTotal()
-    const pulls = calculatePullsUntilPity(pityTotals)
-    const passes = calculateTotalPasses()
-    const amountNeeded = calculateAmountNeededForPity(pulls, passes)
-    const bonus = checkOnericBonus()
-    const onericCosts = calculateNeededOneric(amountNeeded, bonus)
-    showOutputElement()
-    displayResults(pulls, passes, amountNeeded, onericCosts)
-})
+CALCULATE_BUTTON.addEventListener('click', (event) => {
+    event.preventDefault();
 
-// Determine hard and soft pity thresholds based on whether 50/50 is guaranteed
+    resultCells.forEach(cell => {
+        cell.classList.remove('visible');
+    });
+
+    const pityTotals = checkPityTotal();
+    const pulls = calculatePullsUntilPity(pityTotals);
+    const passes = calculateTotalPasses();
+    const amountNeeded = calculateAmountNeededForPity(pulls, passes);
+    const bonus = checkOnericBonus();
+    const onericCosts = calculateNeededOneric(amountNeeded, bonus);
+
+    displayResults(passes, amountNeeded, onericCosts);
+});
+
+
+function displayResults(passes, amountNeeded, onericCosts) {
+    PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>${passes.totalPasses}</span> available pulls.`;
+    PASSES_SOFT_DISPLAY.textContent = amountNeeded.neededPassesSoftPity;
+    PASSES_HARD_DISPLAY.textContent = amountNeeded.neededPassesHardPity;
+    JADES_SOFT_DISPLAY.textContent = amountNeeded.neededJadesSoftPity;
+    JADES_HARD_DISPLAY.textContent = amountNeeded.neededJadesHardPity;
+    ONERIC_SOFT_DISPLAY.textContent = onericCosts.priceSoft;
+    ONERIC_HARD_DISPLAY.textContent = onericCosts.priceHard;
+
+    // Staged delay animation for each cell
+    resultCells.forEach((cell, index) => {
+        setTimeout(() => {
+            cell.classList.add('visible');
+        }, index * 100);
+
+        setTimeout(() => {
+            gif.classList.add('visible', 'shake');
+        }, 700);
+    });
+}
+
 function checkPityTotal() {
-    const hardPity = GUARANTEED.checked ? 90 : 180
-    const softPity = GUARANTEED.checked ? 75 : 150
-    return { hardPity, softPity }
+    const hardPity = GUARANTEED.checked ? 90 : 180;
+    const softPity = GUARANTEED.checked ? 75 : 150;
+    return { hardPity, softPity };
 }
 
-// Calculate how many pulls remain before hitting soft and hard pity
 function calculatePullsUntilPity({ hardPity, softPity }) {
-    const pullsUntilHardPity = hardPity - Number(CURRENT_PITY.value)
-    const pullsUntilSoftPity = softPity - Number(CURRENT_PITY.value)
-    return { pullsUntilHardPity, pullsUntilSoftPity }
+    const pullsUntilHardPity = hardPity - Number(CURRENT_PITY.value);
+    const pullsUntilSoftPity = softPity - Number(CURRENT_PITY.value);
+    return { pullsUntilHardPity, pullsUntilSoftPity };
 }
 
-// Calculate the total number of pulls the user currently has (special passes + jades converted to passes)
 function calculateTotalPasses() {
-    const totalPasses = Math.floor((Number(JADES.value) / 160) + Number(SPECIAL_PASSES.value))
-    return { totalPasses }
+    const totalPasses = Math.floor((Number(JADES.value) / 160) + Number(SPECIAL_PASSES.value));
+    return { totalPasses };
 }
 
-// Determine how many additional passes/jades are needed to reach pity
 function calculateAmountNeededForPity(pulls, passes) {
-    let neededPassesHardPity = 0
-    let neededPassesSoftPity = 0
-    let neededJadesHardPity = 0
-    let neededJadesSoftPity = 0
-
+    let neededPassesHardPity = 0;
+    let neededPassesSoftPity = 0;
+    let neededJadesHardPity = 0;
+    let neededJadesSoftPity = 0;
     if (passes.totalPasses < pulls.pullsUntilHardPity) {
-        neededPassesHardPity = Math.ceil(pulls.pullsUntilHardPity - passes.totalPasses)
-        neededPassesSoftPity = Math.ceil(pulls.pullsUntilSoftPity - passes.totalPasses)
-        neededJadesHardPity = neededPassesHardPity * 160
-        neededJadesSoftPity = neededPassesSoftPity * 160
+        neededPassesHardPity = Math.ceil(pulls.pullsUntilHardPity - passes.totalPasses);
+        neededPassesSoftPity = Math.ceil(pulls.pullsUntilSoftPity - passes.totalPasses);
+        neededJadesHardPity = neededPassesHardPity * 160;
+        neededJadesSoftPity = neededPassesSoftPity * 160;
     }
-    return { neededJadesHardPity, neededJadesSoftPity, neededPassesHardPity, neededPassesSoftPity }
+    return { neededJadesHardPity, neededJadesSoftPity, neededPassesHardPity, neededPassesSoftPity };
 }
 
-// Check whether the "double value" bonus is active and return updated Oneric shard values
 function checkOnericBonus() {
-    let initialOnericValues = [60, 300, 980, 1980, 3280, 6480]
-    let finalOnericValues = []
-
-    // If the bonus is checked, double the amount of jades received per purchase
+    let initialOnericValues = [60, 300, 980, 1980, 3280, 6480];
+    let finalOnericValues = [];
     if (ONERIC_BONUS.checked) {
-        finalOnericValues = initialOnericValues.map(value => value * 2)
+        finalOnericValues = initialOnericValues.map(value => value * 2);
     } else {
-        finalOnericValues = [...initialOnericValues]
+        finalOnericValues = [...initialOnericValues];
     }
-
-    // Destructure into named variables for easier comparisons
-    const [oneric60, oneric300, oneric980, oneric1980, oneric3280, oneric6480] = finalOnericValues
-    return { oneric60, oneric300, oneric980, oneric1980, oneric3280, oneric6480 }
+    const [oneric60, oneric300, oneric980, oneric1980, oneric3280, oneric6480] = finalOnericValues;
+    return { oneric60, oneric300, oneric980, oneric1980, oneric3280, oneric6480 };
 }
 
-// Match required jade amounts to the lowest qualifying shard bundle price in USD
 function calculateNeededOneric({ neededJadesHardPity, neededJadesSoftPity }, bonus) {
-    const neededJadesHard = neededJadesHardPity
-    const neededJadesSoft = neededJadesSoftPity
-
+    const neededJadesHard = neededJadesHardPity;
+    const neededJadesSoft = neededJadesSoftPity;
     const priceHard = neededJadesHard <= bonus.oneric60 ? "$0.99" :
                       neededJadesHard <= bonus.oneric300 ? "$4.99" :
                       neededJadesHard <= bonus.oneric980 ? "$14.99" :
                       neededJadesHard <= bonus.oneric1980 ? "$29.99" :
-                      neededJadesHard <= bonus.oneric3280 ? "$49.99" : "$99.99"
-
+                      neededJadesHard <= bonus.oneric3280 ? "$49.99" : "$99.99";
     const priceSoft = neededJadesSoft <= bonus.oneric60 ? "$0.99" :
                       neededJadesSoft <= bonus.oneric300 ? "$4.99" :
                       neededJadesSoft <= bonus.oneric980 ? "$14.99" :
                       neededJadesSoft <= bonus.oneric1980 ? "$29.99" :
-                      neededJadesSoft <= bonus.oneric3280 ? "$49.99" : "$99.99"
-
-    return { priceHard, priceSoft }
-}
-
-// Show the output section after calculations
-function showOutputElement() {
-    OUTPUT.style.display = 'block'
-}
-
-// Render the calculated data into the HTML output area
-function displayResults(pulls, passes, amountNeeded, onericCosts) {
-    OUTPUT.innerHTML = `
-        <h2>You have ${passes.totalPasses} available pulls.</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Soft Pity (~75)</th>
-                    <th>Hard Pity (90)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Passes needed</td>
-                    <td>${amountNeeded.neededPassesSoftPity}</td>
-                    <td>${amountNeeded.neededPassesHardPity}</td>
-                </tr>
-                <tr>
-                    <td>Jades needed</td>
-                    <td>${amountNeeded.neededJadesSoftPity}</td>
-                    <td>${amountNeeded.neededJadesHardPity}</td>
-                </tr>
-                <tr>
-                    <td>Oneric shard cost (USD)</td>
-                    <td>${onericCosts.priceSoft}</td>
-                    <td>${onericCosts.priceHard}</td>
-                </tr>
-            </tbody>
-        </table>
-    `
+                      neededJadesSoft <= bonus.oneric3280 ? "$49.99" : "$99.99";
+    return { priceHard, priceSoft };
 }

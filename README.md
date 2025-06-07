@@ -33,7 +33,6 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 - [ ] Seperate oneric bonus into each pack.
 - [ ] Account for Nameless Honor and Express Supply Pass.
 - [ ] Add link to this repository to live demo.
-- [ ] Improve the calculator's visual appearance.
 
 ## License
 

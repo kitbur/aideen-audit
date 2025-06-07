@@ -1,37 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    	<meta charset="utf-8">
-    	<meta name="description" content="A Honkai Star Rail calculator to estimate pulls and shard costs until pity.">
-		<meta name="keywords" content="Honkai Star Rail, HSR, calculator, pity, pulls, Honkai, Star Rail">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="A Honkai Star Rail calculator to estimate pulls and shard costs until pity.">
+        <meta name="keywords" content="Honkai Star Rail, HSR, calculator, pity, pulls, Honkai, Star Rail">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HSR Warp Calculator</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <main>
+            <section id="calculator">
+                <h1>Warp Cost Calculator</h1>
+                <form>
+                    <label for="currentPity">
+						<img src="img/tearsOfDreams.png" alt="Tears of Dreams Icon" class="labelIcon">
+						Current Pity
+					</label>
+                    <input id="currentPity" type="number" placeholder="0">
+                    <label for="guaranteed">
+						<img src="img/praiseOfHighMorals.png" alt="Praise of High Morals Icon" class="labelIcon">
+						Guaranteed Pity?
+					</label>
+                    <input type="checkbox" id="guaranteed">
+                    <label for="specialPasses">
+						<img src="img/specialPass.png" alt="Star Rail Special Pass Icon" class="labelIcon">
+						Special Passes
+					</label>
+                    <input id="specialPasses" type="number" placeholder="0">
+                    <label for="jades">
+						<img src="img/stellarJade.png" alt="Stellar Jade Icon" class="labelIcon">
+						Stellar Jades
+					</label>
+                    <input id="jades" type="number" placeholder="0">
+                    <label for="onericBonus">
+						<img src="img/onericShard.png" alt="Oneric Shard Icon" class="labelIcon">
+						First-Time Top-Up Bonus?
+					</label>
+                    <input type="checkbox" id="onericBonus">
+                    <button id="calculate" type="button">Calculate</button>
+                </form>
+            </section>
 
-		<title>Warp Cost Calculator</title>
-
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-
-		<section id="calculator">
-			<h1>Warp Cost Calculator</h1>
-			<form>
-				<label for="currentPity"> Current pity: </label>
-				<input id="currentPity" type="number">
-				<label for="guaranteed"> Lost previous 50/50? </label>
-				<input type="checkbox" id="guaranteed" value="lost5050">
-				<label for="specialPasses"> Special Passes: </label>
-				<input id="specialPasses" type="number">
-				<label for="jades"> Jades: </label>
-				<input id="jades" type="number">
-				<label for="guaranteed"> Double oneric shard bonus? </label>
-				<input type="checkbox" id="onericBonus" value="onericBonus">
-			</form>
-			<button id="calculate">Calculate</button>
-		</section>
-
-		<section id="output"></section>
-
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+            <section id="output">
+                <h2 id="pullsTotal">You have <span>0</span> available pulls.</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Soft Pity (~75)</th>
+                            <th>Hard Pity (90)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Passes needed</td>
+                            <td class="resultValue" id="passesSoft">0</td>
+                            <td class="resultValue" id="passesHard">0</td>
+                        </tr>
+                        <tr>
+                            <td>Jades needed</td>
+                            <td class="resultValue" id="jadesSoft">0</td>
+                            <td class="resultValue" id="jadesHard">0</td>
+                        </tr>
+                        <tr>
+                            <td>Oneric shard cost (USD)</td>
+                            <td class="resultValue" id="onericSoft">$0.00</td>
+                            <td class="resultValue" id="onericHard">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="gifContainer">
+                    <img src="img/aventurine.gif" alt="Animated gif of Aventurine snapping his fingers">
+                </div>
+            </section>
+        </main>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
 </html>

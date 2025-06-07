@@ -123,6 +123,30 @@ label {
 }
 
 /* =========================
+  Links
+  ========================= */
+#githubLink {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+}
+
+#githubLink img {
+  width: 100%;
+  filter: invert(1);
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#githubLink img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* =========================
   Forms & Inputs
   ========================= */
 form {

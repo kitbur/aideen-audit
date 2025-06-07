@@ -47,12 +47,12 @@ function displayResults(passes, amountNeeded, onericCosts) {
     if (passes.totalPasses === 1) {
         PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>1</span> available pull.`;
     } else {
-        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>${passes.totalPasses}</span> available pulls.`;
+        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>${passes.totalPasses.toLocaleString()}</span> available pulls.`;
     }
-    PASSES_SOFT_DISPLAY.textContent = amountNeeded.neededPassesSoftPity;
-    PASSES_HARD_DISPLAY.textContent = amountNeeded.neededPassesHardPity;
-    JADES_SOFT_DISPLAY.textContent = amountNeeded.neededJadesSoftPity;
-    JADES_HARD_DISPLAY.textContent = amountNeeded.neededJadesHardPity;
+    PASSES_SOFT_DISPLAY.textContent = amountNeeded.neededPassesSoftPity.toLocaleString();
+    PASSES_HARD_DISPLAY.textContent = amountNeeded.neededPassesHardPity.toLocaleString();
+    JADES_SOFT_DISPLAY.textContent = amountNeeded.neededJadesSoftPity.toLocaleString();
+    JADES_HARD_DISPLAY.textContent = amountNeeded.neededJadesHardPity.toLocaleString();
     ONERIC_SOFT_DISPLAY.textContent = onericCosts.priceSoft;
     ONERIC_HARD_DISPLAY.textContent = onericCosts.priceHard;
 

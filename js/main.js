@@ -1,3 +1,5 @@
+let priceData = [];
+
 // Get references to input elements
 const CALCULATE_BUTTON = document.querySelector('#calculate');
 const CURRENT_PITY = document.querySelector('#currentPity');
@@ -5,6 +7,7 @@ const GUARANTEED = document.querySelector('#guaranteed');
 const SPECIAL_PASSES = document.querySelector('#specialPasses');
 const JADES = document.querySelector('#jades');
 const ONERIC_BONUS = document.querySelector('#onericBonus');
+const REGION_SELECTOR = document.querySelector('#regionSelect');
 
 // Get references to static elements
 const resultCells = document.querySelectorAll('.resultValue');
@@ -19,9 +22,8 @@ const JADES_HARD_DISPLAY = document.querySelector('#jadesHard');
 const ONERIC_SOFT_DISPLAY = document.querySelector('#onericSoft');
 const ONERIC_HARD_DISPLAY = document.querySelector('#onericHard');
 
-// Resets gif animation when `calculate` is clicked
-gif.addEventListener('animationend', () => {
-    gif.classList.remove('shake');
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadPriceData();
 });
 
 // Run calculations and update the UI when the `calculate` button is clicked
@@ -42,6 +44,38 @@ CALCULATE_BUTTON.addEventListener('click', (event) => {
     displayResults(passes, amountNeeded, onericCosts);
 });
 
+async function loadPriceData() {
+  try {
+    const response = await fetch('./data/prices.json')
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`)
+    }
+
+    priceData = await response.json()
+    
+    populateRegionSelector()
+
+  } catch (error) {
+    console.error("Fatal Error: Could not load price data.", error);
+    alert("ERROR: Could not load price data.");
+  }
+}
+
+function populateRegionSelector() {
+    if (!priceData) return;
+
+    priceData.forEach(region => {
+        const option = document.createElement('option');
+        option.value = region.region;
+        option.textContent = `${region.region} ${region.flag} (${region.currency})`;
+        option.dataset.regionName = region.region; 
+        REGION_SELECTOR.appendChild(option);
+    });
+
+    if (priceData.some(r => r.region === 'US')) {
+        REGION_SELECTOR.value = 'US';
+    }
+}
 
 function displayResults(passes, amountNeeded, onericCosts) {
     if (passes.totalPasses === 1) {
@@ -67,6 +101,11 @@ function displayResults(passes, amountNeeded, onericCosts) {
         }, 700);
     });
 }
+
+// Resets gif animation when `calculate` is clicked
+gif.addEventListener('animationend', () => {
+    gif.classList.remove('shake');
+});
 
 function checkPityTotal() {
     const hardPity = GUARANTEED.checked ? 90 : 180;

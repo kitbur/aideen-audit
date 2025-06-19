@@ -6,8 +6,15 @@ const CURRENT_PITY = document.querySelector('#currentPity');
 const GUARANTEED = document.querySelector('#guaranteed');
 const SPECIAL_PASSES = document.querySelector('#specialPasses');
 const JADES = document.querySelector('#jades');
-const ONERIC_BONUS = document.querySelector('#oneiricBonus');
 const REGION_SELECTOR = document.querySelector('#regionSelect');
+const BONUS_TOGGLES = {
+    shards60: document.querySelector('#bonus60'),
+    shards300: document.querySelector('#bonus300'),
+    shards980: document.querySelector('#bonus980'),
+    shards1980: document.querySelector('#bonus1980'),
+    shards3280: document.querySelector('#bonus3280'),
+    shards6480: document.querySelector('#bonus6480'),
+};
 
 // Get references to static elements
 const resultCells = document.querySelectorAll('.resultValue');
@@ -144,7 +151,7 @@ function calculateAmountNeededForPity(pulls, passes) {
 }
 
 function checkOneiricBonus() {
-    const initialOneiricValues = {
+    const baseShardValues = {
         shards60: 60,
         shards300: 300,
         shards980: 980,
@@ -153,12 +160,14 @@ function checkOneiricBonus() {
         shards6480: 6480
     };
 
-    if (ONERIC_BONUS.checked) {
-        for (const key in initialOneiricValues) {
-            initialOneiricValues[key] *= 2;
-        }
+    const finalShardValues = {};
+
+    for (const key in baseShardValues) {
+        const isBonusActive = BONUS_TOGGLES[key] ? BONUS_TOGGLES[key].checked : false;
+        finalShardValues[key] = isBonusActive ? baseShardValues[key] * 2 : baseShardValues[key];
     }
-    return initialOneiricValues;
+    
+    return finalShardValues;
 }
 
 function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bonus, regionData) {

@@ -252,6 +252,43 @@ input[type="checkbox"]:checked::before {
   background-color: #fff;
 }
 
+#bonusToggles {
+  grid-column: 1 / -1;
+  border: 1px solid var(--hsr-border-color);
+  border-radius: 4px;
+  padding: 1em;
+  margin-top: 0.5em;
+}
+
+#bonusToggles legend {
+  padding: 0 0.5em;
+  color: var(--hsr-accent-blue);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#bonusToggles .toggleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2em 1.5em;
+  align-items: stretch;
+  padding: 0.5em 0 0;
+}
+
+#bonusToggles .togglePair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  gap: 0.2em;
+}
+
+#bonusToggles label {
+  font-weight: 400;
+  text-transform: none;
+  gap: 0.3em;
+}
+
 #calculate {
   grid-column: 1 / -1;
   background-color: var(--hsr-highlight-bg);

@@ -1,6 +1,7 @@
 [
     {
         "region": "Australia",
+        "flag": "🇦🇺",
         "currency": "AU$",
         "prices": {
             "pass": 7.99,
@@ -16,6 +17,7 @@
     },
     {
         "region": "Brazil",
+        "flag": "🇧🇷",
         "currency": "R$",
         "prices": {
             "pass": 24.9,
@@ -31,6 +33,7 @@
     },
     {
         "region": "Canada",
+        "flag": "🇨🇦",
         "currency": "C$",
         "prices": {
             "pass": 6.99,
@@ -46,6 +49,7 @@
     },
     {
         "region": "China",
+        "flag": "🇨🇳",
         "currency": "CNY¥",
         "prices": {
             "pass": 30.0,
@@ -61,6 +65,7 @@
     },
     {
         "region": "EU",
+        "flag": "🇪🇺",
         "currency": "€",
         "prices": {
             "pass": 5.99,
@@ -76,6 +81,7 @@
     },
     {
         "region": "Hong Kong",
+        "flag": "🇭🇰",
         "currency": "HK$",
         "prices": {
             "pass": 38.0,
@@ -91,6 +97,7 @@
     },
     {
         "region": "India",
+        "flag": "🇮🇳",
         "currency": "₹",
         "prices": {
             "pass": 499.0,
@@ -106,6 +113,7 @@
     },
     {
         "region": "Indonesia",
+        "flag": "🇮🇩",
         "currency": "Rp",
         "prices": {
             "pass": 79000.0,
@@ -121,6 +129,7 @@
     },
     {
         "region": "Japan",
+        "flag": "🇯🇵",
         "currency": "JPY¥",
         "prices": {
             "pass": 610.0,
@@ -136,6 +145,7 @@
     },
     {
         "region": "Kazakhstan",
+        "flag": "🇰🇿",
         "currency": "₸",
         "prices": {
             "pass": 1990.0,
@@ -151,6 +161,7 @@
     },
     {
         "region": "Korea",
+        "flag": "🇰🇷",
         "currency": "₩",
         "prices": {
             "pass": 5900.0,
@@ -166,6 +177,7 @@
     },
     {
         "region": "Malaysia",
+        "flag": "🇲🇾",
         "currency": "RM",
         "prices": {
             "pass": 19.9,
@@ -181,6 +193,7 @@
     },
     {
         "region": "Mexico",
+        "flag": "🇲🇽",
         "currency": "Mex$",
         "prices": {
             "pass": 99.0,
@@ -196,6 +209,7 @@
     },
     {
         "region": "Paraguay",
+        "flag": "🇵🇾",
         "currency": "Gs",
         "prices": {
             "pass": 30000.0,
@@ -211,6 +225,7 @@
     },
     {
         "region": "Phillipines",
+        "flag": "🇵🇭",
         "currency": "₱",
         "prices": {
             "pass": 299.0,
@@ -226,6 +241,7 @@
     },
     {
         "region": "Russia",
+        "flag": "🇷🇺",
         "currency": "₽",
         "prices": {
             "pass": 449.0,
@@ -241,6 +257,7 @@
     },
     {
         "region": "Singapore",
+        "flag": "🇸🇬",
         "currency": "SGD$",
         "prices": {
             "pass": 6.98,
@@ -256,6 +273,7 @@
     },
     {
         "region": "Taiwan",
+        "flag": "🇹🇼",
         "currency": "TWD$",
         "prices": {
             "pass": 170.0,
@@ -271,6 +289,7 @@
     },
     {
         "region": "Thailand",
+        "flag": "🇹🇭",
         "currency": "฿",
         "prices": {
             "pass": 179.0,
@@ -286,6 +305,7 @@
     },
     {
         "region": "Turkey",
+        "flag": "🇹🇷",
         "currency": "₺",
         "prices": {
             "pass": 14999.0,
@@ -301,6 +321,7 @@
     },
     {
         "region": "UK",
+        "flag": "🇬🇧",
         "currency": "£",
         "prices": {
             "pass": 4.99,
@@ -316,6 +337,7 @@
     },
     {
         "region": "US",
+        "flag": "🇺🇸",
         "currency": "US$",
         "prices": {
             "pass": 4.99,
@@ -331,6 +353,7 @@
     },
     {
         "region": "Vietnam",
+        "flag": "🇻🇳",
         "currency": "₫",
         "prices": {
             "pass": 109000.0,

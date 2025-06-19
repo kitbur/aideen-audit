@@ -17,6 +17,21 @@ import os
 url = "https://stardb.gg/en/posts/oneiric-shard-prices"
 dataFilePath = os.path.join(os.path.dirname(__file__), '..', 'data', 'prices.json')
 
+# Map regions to country codes
+regionToCountryCode = {
+    'Australia': 'AU', 'Brazil': 'BR', 'Canada': 'CA', 'China': 'CN',
+    'EU': 'EU', 'Hong Kong': 'HK', 'India': 'IN', 'Indonesia': 'ID',
+    'Japan': 'JP', 'Kazakhstan': 'KZ', 'Korea': 'KR', 'Malaysia': 'MY',
+    'Mexico': 'MX', 'Paraguay': 'PY', 'Phillipines': 'PH', 'Russia': 'RU',
+    'Singapore': 'SG', 'Taiwan': 'TW', 'Thailand': 'TH', 'Turkey': 'TR',
+    'UK': 'GB', 'US': 'US', 'Vietnam': 'VN'
+}
+
+def getFlagEmoji(countryCode):
+    if not countryCode:
+        return ''
+    return "".join(chr(127397 + ord(char)) for char in countryCode.upper())
+
 def getPrices():
     print("Fetching data from stardb.gg...")
 
@@ -60,8 +75,13 @@ def getPrices():
                 except (ValueError, TypeError):
                     return None
 
+            # Get flag emoji from country code
+            countryCode = regionToCountryCode.get(region, '')
+            flagEmoji = getFlagEmoji(countryCode)
+
             regionData = {
                 "region": region,
+                "flag": flagEmoji, 
                 "currency": currencySymbol,
                 "prices": {
                     "pass": parsePrice(cols[1].text),

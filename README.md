@@ -16,7 +16,7 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 
 - Calculates pulls remaining until soft and hard pity based on current pity count.
 - Accounts for passes and jades you currently have.
-- Adjusts for a bonus that doubles shard costs. (Note: The double bonus currently applies to ALL oneric shard packs.)
+- Adjusts for a bonus that doubles shard costs. (Note: The double bonus currently applies to ALL oneiric shard packs.)
 - Provides estimated costs in USD for needed shards.
 - Clear display of results in a user-friendly table.
 
@@ -28,11 +28,11 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 
 ## Future Improvements
 
-- [ ] Account for when required jades exceeds the $99.99 USD oneric pack.
+- [ ] Account for when required jades exceeds the $99.99 USD oneiric pack.
 - [ ] Add input validation and error handling.
 - [ ] Add a dark mode option.
-- [ ] Add oneric prices in different currencies.
-- [ ] Seperate oneric bonus into each pack.
+- [ ] Add oneiric prices in different currencies.
+- [ ] Seperate oneiric bonus into each pack.
 - [ ] Account for Nameless Honor and Express Supply Pass.
 
 ## License

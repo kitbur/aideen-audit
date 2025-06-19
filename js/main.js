@@ -6,7 +6,7 @@ const CURRENT_PITY = document.querySelector('#currentPity');
 const GUARANTEED = document.querySelector('#guaranteed');
 const SPECIAL_PASSES = document.querySelector('#specialPasses');
 const JADES = document.querySelector('#jades');
-const ONERIC_BONUS = document.querySelector('#onericBonus');
+const ONERIC_BONUS = document.querySelector('#oneiricBonus');
 const REGION_SELECTOR = document.querySelector('#regionSelect');
 
 // Get references to static elements
@@ -40,11 +40,11 @@ CALCULATE_BUTTON.addEventListener('click', (event) => {
     const pulls = calculatePullsUntilPity(pityTotals);
     const passes = calculateTotalPasses();
     const amountNeeded = calculateAmountNeededForPity(pulls, passes);
-    const bonus = checkOnericBonus();
+    const bonus = checkOneiricBonus();
     const selectedRegionData = priceData.find(region => region.region === REGION_SELECTOR.value);
-    const onericCosts = calculateNeededOneric(amountNeeded, bonus, selectedRegionData);
+    const oneiricCosts = calculateNeededOneiric(amountNeeded, bonus, selectedRegionData);
 
-    displayResults(passes, amountNeeded, onericCosts);
+    displayResults(passes, amountNeeded, oneiricCosts);
 });
 
 async function loadPriceData() {
@@ -80,7 +80,7 @@ function populateRegionSelector() {
     }
 }
 
-function displayResults(passes, amountNeeded, onericCosts) {
+function displayResults(passes, amountNeeded, oneiricCosts) {
     if (passes.totalPasses === 1) {
         PULLS_TOTAL_DISPLAY.innerHTML = `You have <span class="accentGold">1</span> available pull.`;
     } else {
@@ -90,10 +90,10 @@ function displayResults(passes, amountNeeded, onericCosts) {
     PASSES_HARD_DISPLAY.textContent = amountNeeded.neededPassesHardPity.toLocaleString();
     JADES_SOFT_DISPLAY.textContent = amountNeeded.neededJadesSoftPity.toLocaleString();
     JADES_HARD_DISPLAY.textContent = amountNeeded.neededJadesHardPity.toLocaleString();
-    PACKS_SOFT_DISPLAY.innerHTML = onericCosts.packsSoft;
-    PACKS_HARD_DISPLAY.innerHTML = onericCosts.packsHard;
-    COST_SOFT_DISPLAY.innerHTML = onericCosts.costSoft;
-    COST_HARD_DISPLAY.innerHTML = onericCosts.costHard;
+    PACKS_SOFT_DISPLAY.innerHTML = oneiricCosts.packsSoft;
+    PACKS_HARD_DISPLAY.innerHTML = oneiricCosts.packsHard;
+    COST_SOFT_DISPLAY.innerHTML = oneiricCosts.costSoft;
+    COST_HARD_DISPLAY.innerHTML = oneiricCosts.costHard;
 
     // Staged delay animation for each cell
     resultCells.forEach((cell, index) => {
@@ -143,8 +143,8 @@ function calculateAmountNeededForPity(pulls, passes) {
     return { neededJadesHardPity, neededJadesSoftPity, neededPassesHardPity, neededPassesSoftPity };
 }
 
-function checkOnericBonus() {
-    const initialOnericValues = {
+function checkOneiricBonus() {
+    const initialOneiricValues = {
         shards60: 60,
         shards300: 300,
         shards980: 980,
@@ -154,14 +154,14 @@ function checkOnericBonus() {
     };
 
     if (ONERIC_BONUS.checked) {
-        for (const key in initialOnericValues) {
-            initialOnericValues[key] *= 2;
+        for (const key in initialOneiricValues) {
+            initialOneiricValues[key] *= 2;
         }
     }
-    return initialOnericValues;
+    return initialOneiricValues;
 }
 
-function calculateNeededOneric({ neededJadesHardPity, neededJadesSoftPity }, bonus, regionData) {
+function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bonus, regionData) {
     const currency = regionData.currency || '$';
     const prices = regionData.prices;
 
@@ -174,7 +174,7 @@ function calculateNeededOneric({ neededJadesHardPity, neededJadesSoftPity }, bon
         { jades: bonus.shards6480, cost: prices.shards6480, name: '6480' }
     ].filter(pack => pack.cost != null);
     
-    const imageHtml = '<img src="img/onericShard.png" alt="Oneric Shard Icon" class="labelIcon">';
+    const imageHtml = '<img src="img/oneiricShard.png" alt="Oneiric Shard Icon" class="labelIcon">';
     const packs = basePacks
     .map(pack => ({
         ...pack,

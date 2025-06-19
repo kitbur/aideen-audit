@@ -1,5 +1,5 @@
 #
-# Extract oneric shard prices from stardb.gg.
+# Extract oneiric shard prices from stardb.gg.
 #
 # This script uses the 'requests' library to download the webpage and
 # 'BeautifulSoup' to parse the HTML and find the price data.

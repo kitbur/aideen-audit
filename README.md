@@ -1,10 +1,11 @@
-# Honkai: Star Rail Pity Calculator
+# Honkai: Star Rail Warp Cost Calculator
 
 ![Alpha](https://img.shields.io/badge/status-alpha-orange)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> ⚠️ **Warning:** This project is in early alpha. Features are incomplete, and bugs are likely. Use at your own risk!
+> ⚠️ **Warning:** This project is in alpha. Features are incomplete, and bugs are likely. Use at your own risk!
 
-A simple web-based Honkai: Star Rail calculator to estimate how many pulls, passes, and currency you need to reach soft or hard pity thresholds, including cost estimates based on bonuses.
+A warp cost calculator for Honkai: Star Rail. See exactly how many pulls, passes, and Stellar Jades you need to reach soft or hard pity. Get a total cost estimate and list of optimal Onieric Shard packs to purchase based on your regional currency.
 
 ## Demo
 
@@ -14,29 +15,15 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 
 ## Features
 
-- Calculates pulls remaining until soft and hard pity based on current pity count.
-- Accounts for passes and jades you currently have.
-- Adjusts for a bonus that doubles shard costs. (Note: The double bonus currently applies to ALL oneiric shard packs.)
-- Provides estimated costs in USD for needed shards.
-- Clear display of results in a user-friendly table.
+-   **Pity Calculation:** Calculates pulls needed for soft (75/150) and hard (90/180) pity.
+-   **Resource Tracking:** Accounts for your current pity, Stellar Jades, and Special Passes.
+-   **Dynamic Regional Pricing:** Fetches up-to-date pricing for a variety of regions to provide accurate cost estimates in local currency.
+-   **First-Time Bonus Toggle:** Includes the option to factor in the first-time top-up bonus for Oneiric Shard packs.
+-   **Cost-Effective Breakdown:** Shows a recommended combination of Oneiric Shard packs to purchase for the most efficient cost.
 
-## Technologies Used
+## Roadmap
 
-- HTML
-- CSS
-- JavaScript (ES6)
-
-## Future Improvements
-
-- [ ] Account for when required jades exceeds the $99.99 USD oneiric pack.
-- [ ] Add input validation and error handling.
-- [ ] Add a dark mode option.
-- [ ] Add oneiric prices in different currencies.
-- [ ] Seperate oneiric bonus into each pack.
-- [ ] Account for Nameless Honor and Express Supply Pass.
-
-## License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-This project is open source under the MIT License.
+-   **v1.0 Release Goals:**
+-   [ ] Implement toggles for individual first-time top-up bonuses for each shard pack.
+-   [ ] Account for Express Pass and Nameless Honor.
+-   [ ] Input validation and error handling.

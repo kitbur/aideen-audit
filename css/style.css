@@ -270,13 +270,14 @@ input[type="checkbox"]:checked::before {
 /* =========================
   Output & Animation
   ========================= */
-#output span {
-  color: var(--hsr-accent-gold);
+
+.accentGold {
+  color: var(--hsr-accent-gold)
 }
 
-/* Result Animation */
 .resultValue {
   opacity: 0;
+  color: var(--hsr-accent-gold);
   transform: translateY(15px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
@@ -284,6 +285,12 @@ input[type="checkbox"]:checked::before {
 .resultValue.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.currencySymbol {
+  font-weight: 500;
+  color: var(--hsr-text-secondary);
+  margin-right: 2px;
 }
 
 /* =========================

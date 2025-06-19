@@ -174,7 +174,7 @@ function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bo
     const currency = regionData.currency || '$';
     const prices = regionData.prices;
 
-    const basePacks = [
+    const packs = [
         { jades: bonus.shards60, cost: prices.shards60, name: '60' },
         { jades: bonus.shards300, cost: prices.shards300, name: '300' },
         { jades: bonus.shards980, cost: prices.shards980, name: '980' },
@@ -182,14 +182,6 @@ function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bo
         { jades: bonus.shards3280, cost: prices.shards3280, name: '3280' },
         { jades: bonus.shards6480, cost: prices.shards6480, name: '6480' }
     ].filter(pack => pack.cost != null);
-    
-    const imageHtml = '<img src="img/oneiricShard.png" alt="Oneiric Shard Icon" class="labelIcon">';
-    const packs = basePacks
-    .map(pack => ({
-        ...pack,
-        name: `${imageHtml} ${pack.name}`
-    }))
-    .filter(pack => pack.cost != null);
 
     const getPurchasePlan = (neededJades) => {
         if (neededJades <= 0) {
@@ -224,9 +216,9 @@ function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bo
         }
         
         const costString = `<span class="minorText">${currency}</span>${totalCost.toFixed(2)}`;
-
+        
         const listItems = Object.entries(purchaseList)
-            .map(([name, count]) => `<li><span class="minorText">${count}&times;</span> ${name}</li>`)
+            .map(([name, count]) => `<li class="oneiric"><span class="minorText">${count}&times;</span> ${name}</li>`)
             .join('');
 
         const packsString = `<ul>${listItems}</ul>`;

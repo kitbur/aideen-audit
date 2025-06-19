@@ -26,7 +26,6 @@
 body {
   font-family: 'Barlow', sans-serif;
   background-color: var(--hsr-bg);
-  background-image: url('https://webstatic.hoyoverse.com/static/corpweb/2023/10/26/22904a29dba39542a03e64fee6447556.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

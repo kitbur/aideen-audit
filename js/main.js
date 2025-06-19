@@ -47,9 +47,13 @@ CALCULATE_BUTTON.addEventListener('click', (event) => {
     const pulls = calculatePullsUntilPity(pityTotals);
     const passes = calculateTotalPasses();
     const amountNeeded = calculateAmountNeededForPity(pulls, passes);
-    const bonus = checkOneiricBonus();
+
+    const bonusToggles = Object.fromEntries(
+        Object.entries(BONUS_TOGGLES).map(([key, element]) => [key, element.checked])
+    );
+
     const selectedRegionData = priceData.find(region => region.region === REGION_SELECTOR.value);
-    const oneiricCosts = calculateNeededOneiric(amountNeeded, bonus, selectedRegionData);
+    const oneiricCosts = calculateNeededOneiric(amountNeeded, bonusToggles, selectedRegionData);     
 
     displayResults(passes, amountNeeded, oneiricCosts);
 });
@@ -170,58 +174,68 @@ function checkOneiricBonus() {
     return finalShardValues;
 }
 
-function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bonus, regionData) {
+function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bonusToggles, regionData) {
     const currency = regionData.currency || '$';
     const prices = regionData.prices;
 
-    const packs = [
-        { jades: bonus.shards60, cost: prices.shards60, name: '60' },
-        { jades: bonus.shards300, cost: prices.shards300, name: '300' },
-        { jades: bonus.shards980, cost: prices.shards980, name: '980' },
-        { jades: bonus.shards1980, cost: prices.shards1980, name: '1980' },
-        { jades: bonus.shards3280, cost: prices.shards3280, name: '3280' },
-        { jades: bonus.shards6480, cost: prices.shards6480, name: '6480' }
+    // Define the packs with their BASE values.
+    const basePacks = [
+        { baseJades: 60, cost: prices.shards60, name: '60' },
+        { baseJades: 300, cost: prices.shards300, name: '300' },
+        { baseJades: 980, cost: prices.shards980, name: '980' },
+        { baseJades: 1980, cost: prices.shards1980, name: '1980' },
+        { baseJades: 3280, cost: prices.shards3280, name: '3280' },
+        { baseJades: 6480, cost: prices.shards6480, name: '6480' }
     ].filter(pack => pack.cost != null);
 
     const getPurchasePlan = (neededJades) => {
         if (neededJades <= 0) {
-            return {
-                costString: `<span class="minorText">${currency}</span>0.00`,
-                packsString: 'None'
-            };
+            return { costString: `<span><span class="minorText">${currency}</span>0.00</span>`, packsString: 'None' };
         }
-        if (packs.length === 0) return { costString: 'N/A', packsString: 'N/A' };
+        if (basePacks.length === 0) return { costString: 'N/A', packsString: 'N/A' };
 
         let remainingJades = neededJades;
         let totalCost = 0;
         const purchaseList = {};
-
-        const sortedPacks = [...packs].sort((a, b) => b.jades - a.jades);
+        const bonusesAvailable = { ...bonusToggles }; 
+        const sortedPacks = [...basePacks].sort((a, b) => b.baseJades - a.baseJades);
 
         for (const pack of sortedPacks) {
-            if (remainingJades >= pack.jades) {
-                const numPacks = Math.floor(remainingJades / pack.jades);
+            const bonusKey = `shards${pack.name}`;
+            const bonusValue = pack.baseJades * 2;
+            
+            if (bonusesAvailable[bonusKey] && remainingJades >= bonusValue) {
+                totalCost += pack.cost;
+                remainingJades -= bonusValue;
+                purchaseList[pack.name] = (purchaseList[pack.name] || 0) + 1;
+                bonusesAvailable[bonusKey] = false;
+            }
+        }
+
+        for (const pack of sortedPacks) {
+            if (remainingJades >= pack.baseJades) {
+                const numPacks = Math.floor(remainingJades / pack.baseJades);
                 totalCost += numPacks * pack.cost;
-                remainingJades -= numPacks * pack.jades;
+                remainingJades -= numPacks * pack.baseJades;
                 purchaseList[pack.name] = (purchaseList[pack.name] || 0) + numPacks;
             }
         }
 
         if (remainingJades > 0) {
-            const coveringPack = [...sortedPacks].reverse().find(pack => pack.jades >= remainingJades);
+            const coveringPack = [...sortedPacks].reverse().find(pack => pack.baseJades >= remainingJades);
             if (coveringPack) {
                 totalCost += coveringPack.cost;
                 purchaseList[coveringPack.name] = (purchaseList[coveringPack.name] || 0) + 1;
             }
         }
         
-        const costString = `<span class="minorText">${currency}</span>${totalCost.toFixed(2)}`;
+        const costString = `<span><span class="minorText">${currency}</span>${totalCost.toFixed(2)}</span>`;
         
         const listItems = Object.entries(purchaseList)
             .map(([name, count]) => `<li class="oneiric"><span class="minorText">${count}&times;</span> ${name}</li>`)
             .join('');
 
-        const packsString = `<ul>${listItems}</ul>`;
+        const packsString = listItems ? `<ul>${listItems}</ul>` : 'None';
 
         return { costString, packsString };
     };

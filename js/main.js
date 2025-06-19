@@ -19,8 +19,10 @@ const PASSES_SOFT_DISPLAY = document.querySelector('#passesSoft');
 const PASSES_HARD_DISPLAY = document.querySelector('#passesHard');
 const JADES_SOFT_DISPLAY = document.querySelector('#jadesSoft');
 const JADES_HARD_DISPLAY = document.querySelector('#jadesHard');
-const ONERIC_SOFT_DISPLAY = document.querySelector('#onericSoft');
-const ONERIC_HARD_DISPLAY = document.querySelector('#onericHard');
+const PACKS_SOFT_DISPLAY = document.querySelector('#packsSoft');
+const PACKS_HARD_DISPLAY = document.querySelector('#packsHard');
+const COST_SOFT_DISPLAY = document.querySelector('#costSoft');
+const COST_HARD_DISPLAY = document.querySelector('#costHard');
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPriceData();
@@ -80,16 +82,18 @@ function populateRegionSelector() {
 
 function displayResults(passes, amountNeeded, onericCosts) {
     if (passes.totalPasses === 1) {
-        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>1</span> available pull.`;
+        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span class="accentGold">1</span> available pull.`;
     } else {
-        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span>${passes.totalPasses.toLocaleString()}</span> available pulls.`;
+        PULLS_TOTAL_DISPLAY.innerHTML = `You have <span class="accentGold">${passes.totalPasses.toLocaleString()}</span> available pulls.`;
     }
     PASSES_SOFT_DISPLAY.textContent = amountNeeded.neededPassesSoftPity.toLocaleString();
     PASSES_HARD_DISPLAY.textContent = amountNeeded.neededPassesHardPity.toLocaleString();
     JADES_SOFT_DISPLAY.textContent = amountNeeded.neededJadesSoftPity.toLocaleString();
     JADES_HARD_DISPLAY.textContent = amountNeeded.neededJadesHardPity.toLocaleString();
-    ONERIC_SOFT_DISPLAY.innerHTML = onericCosts.priceSoft;
-    ONERIC_HARD_DISPLAY.innerHTML = onericCosts.priceHard;
+    PACKS_SOFT_DISPLAY.innerHTML = onericCosts.packsSoft;
+    PACKS_HARD_DISPLAY.innerHTML = onericCosts.packsHard;
+    COST_SOFT_DISPLAY.innerHTML = onericCosts.costSoft;
+    COST_HARD_DISPLAY.innerHTML = onericCosts.costHard;
 
     // Staged delay animation for each cell
     resultCells.forEach((cell, index) => {
@@ -161,23 +165,73 @@ function calculateNeededOneric({ neededJadesHardPity, neededJadesSoftPity }, bon
     const currency = regionData.currency || '$';
     const prices = regionData.prices;
 
-    const getPriceForJades = (neededJades) => {
+    const basePacks = [
+        { jades: bonus.shards60, cost: prices.shards60, name: '60' },
+        { jades: bonus.shards300, cost: prices.shards300, name: '300' },
+        { jades: bonus.shards980, cost: prices.shards980, name: '980' },
+        { jades: bonus.shards1980, cost: prices.shards1980, name: '1980' },
+        { jades: bonus.shards3280, cost: prices.shards3280, name: '3280' },
+        { jades: bonus.shards6480, cost: prices.shards6480, name: '6480' }
+    ].filter(pack => pack.cost != null);
+    
+    const imageHtml = '<img src="img/onericShard.png" alt="Oneric Shard Icon" class="labelIcon">';
+    const packs = basePacks
+    .map(pack => ({
+        ...pack,
+        name: `${imageHtml} ${pack.name}`
+    }))
+    .filter(pack => pack.cost != null);
+
+    const getPurchasePlan = (neededJades) => {
         if (neededJades <= 0) {
-            return `<span class="currencySymbol">${currency}</span>0.00`;
+            return {
+                costString: `<span class="minorText">${currency}</span>0.00`,
+                packsString: 'None'
+            };
+        }
+        if (packs.length === 0) return { costString: 'N/A', packsString: 'N/A' };
+
+        let remainingJades = neededJades;
+        let totalCost = 0;
+        const purchaseList = {};
+
+        const sortedPacks = [...packs].sort((a, b) => b.jades - a.jades);
+
+        for (const pack of sortedPacks) {
+            if (remainingJades >= pack.jades) {
+                const numPacks = Math.floor(remainingJades / pack.jades);
+                totalCost += numPacks * pack.cost;
+                remainingJades -= numPacks * pack.jades;
+                purchaseList[pack.name] = (purchaseList[pack.name] || 0) + numPacks;
+            }
         }
 
-        if (prices.shards60 != null && neededJades <= bonus.shards60) return `<span class="currencySymbol">${currency}</span>${prices.shards60.toFixed(2)}`;
-        if (prices.shards300 != null && neededJades <= bonus.shards300) return `<span class="currencySymbol">${currency}</span>${prices.shards300.toFixed(2)}`;
-        if (prices.shards980 != null && neededJades <= bonus.shards980) return `<span class="currencySymbol">${currency}</span>${prices.shards980.toFixed(2)}`;
-        if (prices.shards1980 != null && neededJades <= bonus.shards1980) return `<span class="currencySymbol">${currency}</span>${prices.shards1980.toFixed(2)}`;
-        if (prices.shards3280 != null && neededJades <= bonus.shards3280) return `<span class="currencySymbol">${currency}</span>${prices.shards3280.toFixed(2)}`;
-        if (prices.shards6480 != null) return `<span class="currencySymbol">${currency}</span>${prices.shards6480.toFixed(2)}`;
+        if (remainingJades > 0) {
+            const coveringPack = [...sortedPacks].reverse().find(pack => pack.jades >= remainingJades);
+            if (coveringPack) {
+                totalCost += coveringPack.cost;
+                purchaseList[coveringPack.name] = (purchaseList[coveringPack.name] || 0) + 1;
+            }
+        }
         
-        return "N/A";
+        const costString = `<span class="minorText">${currency}</span>${totalCost.toFixed(2)}`;
+
+        const listItems = Object.entries(purchaseList)
+            .map(([name, count]) => `<li><span class="minorText">${count}&times;</span> ${name}</li>`)
+            .join('');
+
+        const packsString = `<ul>${listItems}</ul>`;
+
+        return { costString, packsString };
     };
 
-    const priceHard = getPriceForJades(neededJadesHardPity);
-    const priceSoft = getPriceForJades(neededJadesSoftPity);
+    const hardPityPlan = getPurchasePlan(neededJadesHardPity);
+    const softPityPlan = getPurchasePlan(neededJadesSoftPity);
 
-    return { priceHard, priceSoft };
+    return { 
+        costSoft: softPityPlan.costString,
+        packsSoft: softPityPlan.packsString,
+        costHard: hardPityPlan.costString,
+        packsHard: hardPityPlan.packsString
+    };
 }

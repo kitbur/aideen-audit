@@ -38,6 +38,11 @@ body {
   letter-spacing: 0.3px;
 }
 
+ul {
+  list-style: none;
+  text-align: left;
+}
+
 /* =========================
   Layout
   ========================= */
@@ -161,8 +166,10 @@ form {
 }
 
 .labelIcon {
-  height: 30px;
-  width: 30px;
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin-bottom: 0.1em;
   object-fit: contain;
 }
 
@@ -287,7 +294,7 @@ input[type="checkbox"]:checked::before {
   transform: translateY(0);
 }
 
-.currencySymbol {
+.minorText {
   font-weight: 500;
   color: var(--hsr-text-secondary);
   margin-right: 2px;

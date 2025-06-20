@@ -35,6 +35,10 @@ const COST_HARD_DISPLAY = document.querySelector('#costHard');
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPriceData();
 
+    CURRENT_PITY.addEventListener('input', validateInput);
+    SPECIAL_PASSES.addEventListener('input', validateInput);
+    JADES.addEventListener('input', validateInput);
+
     TOGGLE_ALL_BONUSES.addEventListener('change', () => {
         const isChecked = TOGGLE_ALL_BONUSES.checked;
         Object.values(BONUS_TOGGLES).forEach(checkbox => {
@@ -60,6 +64,43 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateToggleAllState();
 });
 
+// Invalid input feedback
+function validateInput(event) {
+  const input = event.target;
+
+  if (input.classList.contains('shake-error')) {
+    return;
+  }
+
+  const max = parseInt(input.max);
+  const min = parseInt(input.min);
+
+  if (input.value === '') {
+    input.classList.remove('invalid');
+    return;
+  }
+
+  const value = parseInt(input.value);
+
+  if (value > max || value < min) {
+    input.classList.add('invalid');
+    input.classList.add('shake-error');
+
+    const handleAnimationEnd = () => {
+      const correctedValue = value > max ? max : min;
+      input.value = correctedValue;
+
+      input.classList.remove('invalid');
+      input.classList.remove('shake-error');
+    };
+
+    input.addEventListener('animationend', handleAnimationEnd, { once: true });
+    
+  } else {
+    input.classList.remove('invalid');
+  }
+}
+
 // Syncs the "Toggle All" checkbox based on the state of individual checkboxes
 function updateToggleAllState() {
     const allToggles = Object.values(BONUS_TOGGLES).filter(t => t !== null);
@@ -68,7 +109,6 @@ function updateToggleAllState() {
         TOGGLE_ALL_BONUSES.checked = allChecked;
     }
 }
-
 
 // Run calculations and update the UI when the `calculate` button is clicked
 CALCULATE_BUTTON.addEventListener('click', (event) => {

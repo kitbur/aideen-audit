@@ -364,6 +364,24 @@ input[type="checkbox"]:checked::before {
   color: var(--hsr-bg);
 }
 
+input.invalid,
+input.invalid:focus {
+  outline: none;
+  border-color: #E05555;
+  box-shadow: 0 0 5px rgba(224, 85, 85, 0.5);
+}
+
+@keyframes inputShake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+
+.shake-error {
+  animation: inputShake 0.5s ease-in-out;
+}
+
 /* =========================
   Output & Animation
   ========================= */

@@ -27,9 +27,8 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 -   [X] Implement toggles for individual first-time top-up bonuses for each shard pack.
 -   [X] Regional prices.
 -   [ ] Account for Express Pass and Nameless Honor.
--   [ ] Input validation and error handling.
-    -   [ ] Forbid strings.
-    -   [ ] Don't let calculations go below zero.
+-   [X] Input validation and error handling.
+    -   [X] Don't let calculations go below zero.
 -   [X] Toggle all option in the top-up bonus input section.
 -   [X] Visible indicator for bonus shards.
 -   [ ] Dynamic pull totals depending on 50/50 toggle.

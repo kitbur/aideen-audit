@@ -33,6 +33,18 @@ const COST_HARD_DISPLAY = document.querySelector('#costHard');
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPriceData();
+
+    for (const key in BONUS_TOGGLES) {
+        const checkbox = BONUS_TOGGLES[key];
+        if (checkbox) {
+            checkbox.addEventListener('change', (event) => {
+                const label = document.querySelector(`label[for="${checkbox.id}"]`);
+                if (label) {
+                    label.classList.toggle('bonusActive', event.target.checked);
+                }
+            });
+        }
+    }
 });
 
 // Run calculations and update the UI when the `calculate` button is clicked
@@ -207,7 +219,7 @@ function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bo
             if (bonusesAvailable[bonusKey] && remainingJades >= bonusValue) {
                 totalCost += pack.cost;
                 remainingJades -= bonusValue;
-                purchaseList[pack.name] = (purchaseList[pack.name] || 0) + 1;
+                purchaseList[`${pack.name}_bonus`] = 1; 
                 bonusesAvailable[bonusKey] = false;
             }
         }
@@ -232,7 +244,13 @@ function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bo
         const costString = `<span><span class="minorText">${currency}</span>${totalCost.toFixed(2)}</span>`;
         
         const listItems = Object.entries(purchaseList)
-            .map(([name, count]) => `<li class="oneiric"><span class="minorText">${count}&times;</span> ${name}</li>`)
+            .map(([name, count]) => {
+                const isBonus = name.endsWith('_bonus');
+                const cleanName = isBonus ? name.replace('_bonus', '') : name;
+                const nameHtml = `<span${isBonus ? ' class="bonusActive oneiric"' : ' class="oneiric"'}>${cleanName}</span>`;
+                    
+                return `<li><span class="minorText">${count}&times;</span> ${nameHtml}</li>`;
+            })
             .join('');
 
         const packsString = listItems ? `<ul>${listItems}</ul>` : 'None';

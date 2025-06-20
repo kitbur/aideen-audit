@@ -139,6 +139,16 @@ label {
   vertical-align: middle;
 }
 
+.bonusActive {
+  color: var(--hsr-accent-gold);
+  background-color: #2F5972;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0 0.5em;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
 /* =========================
   Links
   ========================= */

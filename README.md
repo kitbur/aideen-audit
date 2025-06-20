@@ -5,7 +5,7 @@
 
 > ⚠️ **Warning:** This project is in alpha. Features are incomplete, and bugs are likely. Use at your own risk!
 
-A warp cost calculator for Honkai: Star Rail. See exactly how many pulls, passes, and Stellar Jades you need to reach soft or hard pity. Get a total cost estimate and list of optimal Onieric Shard packs to purchase based on your regional currency.
+A warp cost calculator for Honkai: Star Rail. See exactly how many pulls, passes, and Stellar Jades you need to reach soft or hard pity. Get a total cost estimate and list of optimal Oneiric Shard packs to purchase based on your regional currency.
 
 ## Demo
 
@@ -25,9 +25,11 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 
 -   **v1.0 Release Goals:**
 -   [X] Implement toggles for individual first-time top-up bonuses for each shard pack.
+-   [X] Regional prices.
 -   [ ] Account for Express Pass and Nameless Honor.
 -   [ ] Input validation and error handling.
     -   [ ] Forbid strings.
     -   [ ] Don't let calculations go below zero.
 -   [ ] Toggle all option in the top-up bonus input section.
--   [ ] Visible indicator for bonus shards.
+-   [X] Visible indicator for bonus shards.
+-   [ ] Dynamic pull totals depending on 50/50 toggle.

@@ -129,7 +129,7 @@ function updateToggleAllState() {
 CALCULATE_BUTTON.addEventListener('click', (event) => {
     event.preventDefault();
 
-    let currentPity = Math.min(parseInt(CURRENT_PITY.value) || 0, 179);
+    let currentPity = Math.min(parseInt(CURRENT_PITY.value) || 0, 90);
     let specialPasses = Math.min(parseInt(SPECIAL_PASSES.value) || 0, 999999);
     let jades = Math.min(parseInt(JADES.value) || 0, 9999999);
     

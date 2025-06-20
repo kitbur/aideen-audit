@@ -7,6 +7,7 @@ const GUARANTEED = document.querySelector('#guaranteed');
 const SPECIAL_PASSES = document.querySelector('#specialPasses');
 const JADES = document.querySelector('#jades');
 const REGION_SELECTOR = document.querySelector('#regionSelect');
+const TOGGLE_ALL_BONUSES = document.querySelector('#toggleAllBonuses');
 const BONUS_TOGGLES = {
     shards60: document.querySelector('#bonus60'),
     shards300: document.querySelector('#bonus300'),
@@ -34,6 +35,16 @@ const COST_HARD_DISPLAY = document.querySelector('#costHard');
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPriceData();
 
+    TOGGLE_ALL_BONUSES.addEventListener('change', () => {
+        const isChecked = TOGGLE_ALL_BONUSES.checked;
+        Object.values(BONUS_TOGGLES).forEach(checkbox => {
+            if (checkbox && checkbox.checked !== isChecked) {
+                checkbox.checked = isChecked;
+                checkbox.dispatchEvent(new Event('change'));
+            }
+        });
+    });
+
     for (const key in BONUS_TOGGLES) {
         const checkbox = BONUS_TOGGLES[key];
         if (checkbox) {
@@ -42,10 +53,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (label) {
                     label.classList.toggle('bonusActive', event.target.checked);
                 }
+                updateToggleAllState();
             });
         }
     }
+    updateToggleAllState();
 });
+
+// Syncs the "Toggle All" checkbox based on the state of individual checkboxes
+function updateToggleAllState() {
+    const allToggles = Object.values(BONUS_TOGGLES).filter(t => t !== null);
+    const allChecked = allToggles.every(toggle => toggle.checked);
+    if (TOGGLE_ALL_BONUSES.checked !== allChecked) {
+        TOGGLE_ALL_BONUSES.checked = allChecked;
+    }
+}
+
 
 // Run calculations and update the UI when the `calculate` button is clicked
 CALCULATE_BUTTON.addEventListener('click', (event) => {

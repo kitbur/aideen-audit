@@ -20,6 +20,7 @@
                         Current Pity
                     </label>
                     <input id="currentPity" type="number" placeholder="0" min="0" max="179">
+                    <span id="pityError" class="errorMessage" aria-live="polite"></span>
                     <label for="guaranteed">
                         <img src="img/praiseOfHighMorals.png" alt="Praise of High Morals Icon" class="labelIcon">
                         Guaranteed Character?
@@ -30,11 +31,13 @@
                         Special Passes
                     </label>
                     <input id="specialPasses" type="number" placeholder="0" min="0" max="999999">
+                    <span id="passesError" class="errorMessage" aria-live="polite"></span>
                     <label for="jades">
                         <img src="img/stellarJade.png" alt="Stellar Jade Icon" class="labelIcon">
                         Stellar Jades
                     </label>
                     <input id="jades" type="number" placeholder="0" min="0" max="9999999">
+                    <span id="jadesError" class="errorMessage" aria-live="polite"></span>
                     <fieldset id="bonusToggles">
                         <legend>&times2 Top-Up Bonuses</legend>
                         <div class="toggleAllContainer">

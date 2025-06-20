@@ -20,6 +20,9 @@ const BONUS_TOGGLES = {
 // Get references to static elements
 const resultCells = document.querySelectorAll('.resultValue');
 const gif = document.querySelector('#gifContainer img');
+const pityError = document.querySelector('#pityError');
+const passesError = document.querySelector('#passesError');
+const jadesError = document.querySelector('#jadesError');
 
 // Get references to output elements
 const PULLS_TOTAL_DISPLAY = document.querySelector('#pullsTotal');
@@ -66,39 +69,44 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Invalid input feedback
 function validateInput(event) {
-  const input = event.target;
+    const input = event.target;
 
-  if (input.classList.contains('shake-error')) {
-    return;
-  }
+    if (input.classList.contains('shakeError')) {
+        return;
+    }
 
-  const max = parseInt(input.max);
-  const min = parseInt(input.min);
+    const max = parseInt(input.max);
+    const min = parseInt(input.min);
 
-  if (input.value === '') {
-    input.classList.remove('invalid');
-    return;
-  }
+    if (input.value === '') {
+        input.classList.remove('invalid');
+        return;
+    }
 
-  const value = parseInt(input.value);
+    const value = parseInt(input.value);
 
-  if (value > max || value < min) {
-    input.classList.add('invalid');
-    input.classList.add('shake-error');
+    if (value > max || value < min) {
+        input.classList.add('invalid');
+        input.classList.add('shakeError');
 
-    const handleAnimationEnd = () => {
-      const correctedValue = value > max ? max : min;
-      input.value = correctedValue;
+        const errorMessage = `Invalid value. The maximum is ${max}.`;
+        pityError.textContent = errorMessage;
+        passesError.textContent = errorMessage;
+        jadesError.textContent = errorMessage;
 
-      input.classList.remove('invalid');
-      input.classList.remove('shake-error');
-    };
+        const handleAnimationEnd = () => {
+            const correctedValue = value > max ? max : min;
+            input.value = correctedValue;
 
-    input.addEventListener('animationend', handleAnimationEnd, { once: true });
-    
-  } else {
-    input.classList.remove('invalid');
-  }
+            input.classList.remove('invalid');
+            input.classList.remove('shakeError');
+        };
+
+        input.addEventListener('animationend', handleAnimationEnd, { once: true });
+
+    } else {
+        input.classList.remove('invalid');
+    }
 }
 
 // Syncs the "Toggle All" checkbox based on the state of individual checkboxes

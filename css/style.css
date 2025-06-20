@@ -364,6 +364,10 @@ input[type="checkbox"]:checked::before {
   color: var(--hsr-bg);
 }
 
+/* =========================
+  Input Validation
+  ========================= */
+
 input.invalid,
 input.invalid:focus {
   outline: none;
@@ -378,8 +382,20 @@ input.invalid:focus {
   40%, 60% { transform: translateX(6px); }
 }
 
-.shake-error {
+.shakeError {
   animation: inputShake 0.5s ease-in-out;
+}
+
+.errorMessage {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* =========================

@@ -1,37 +1,47 @@
-# Honkai: Star Rail Warp Cost Calculator
+# Aideen Audit
 
-![Alpha](https://img.shields.io/badge/status-alpha-orange)
+### The True Cost of Your Next Honkai: Star Rail 5-Star.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> ⚠️ **Warning:** This project is in alpha. Features are incomplete, and bugs are likely. Use at your own risk!
+Aideen Audit is a comprehensive financial planning tool for Honkai: Star Rail players. It moves beyond simple pull counting to provide a detailed audit of the real-world cost required to secure your next 5-star character, featuring dynamic, region-specific pricing.
 
-A warp cost calculator for Honkai: Star Rail. See exactly how many pulls, passes, and Stellar Jades you need to reach soft or hard pity. Get a total cost estimate and list of optimal Oneiric Shard packs to purchase based on your regional currency.
+<p align="center">
+    <img src="img/demo.gif" alt="Aideen Audit Demo GIF" width="80%">
+</p>
 
-## Demo
+<p align="center">
+    <a href="https://kitbur.github.io/aideen-audit/">
+        <img src="https://img.shields.io/badge/View_Live_Demo-5865F2?style=for-the-badge&logo=githubpages&logoColor=white" alt="View Live Demo">
+    </a>
+</p>
 
-![Demo Gif](img/demo.gif)
+## Key Features
 
-Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calculator/)
+- **Pity Planning:** Calculates the exact pulls needed for both soft (75/150) and hard (90/180) pity thresholds, accounting for your guaranteed status.
+- **Real-World Cost Analysis:** See the estimated total cost of your required pulls, calculated using a cost-effective combination of Oneiric Shard packs.
+- **Global Currency Support:** Select your local region to get accurate pricing data and cost estimates in your own currency. No more manual conversions!
+- **Resource Tracking:** Input your current pity, Stellar Jades, and Special Passes.
+- **First-Time Bonus Modeling:** Toggle first-time purchase bonuses for each individual Oneiric Shard pack to see how they impact your overall cost, allowing for precise budget optimization.
+- **Shopping List:** Generates an optimal shopping list of efficient top-up purchases.
 
-## Features
+## Technologies
 
--   **Pity Calculation:** Calculates pulls needed for soft (75/150) and hard (90/180) pity.
--   **Resource Tracking:** Accounts for your current pity, Stellar Jades, and Special Passes.
--   **Dynamic Regional Pricing:** Fetches up-to-date pricing for a variety of regions to provide accurate cost estimates in local currency.
--   **First-Time Bonus Toggle:** Includes the option to factor in the first-time top-up bonus for Oneiric Shard packs.
--   **Cost-Effective Breakdown:** Shows a recommended combination of Oneiric Shard packs to purchase for the most efficient cost.
+<p align="left">
+    <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+    <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
+    <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
+</p>
 
-## Roadmap
+## Future Enhancements
 
--   **v1.0 Release Goals:**
--   [X] Implement toggles for individual first-time top-up bonuses for each shard pack.
--   [X] Regional prices.
--   [ ] Account for Express Pass and Nameless Honor.
--   [X] Input validation and error handling.
-    -   [X] Don't let calculations go below zero.
--   [X] Toggle all option in the top-up bonus input section.
--   [X] Visible indicator for bonus shards.
--   [X] Add instructions to right panel before calculate is clicked.
--   [X] Improve mobile layout.
--   [ ] Animate instructions toggle transition.
--   [ ] Mobile-friendly instructions panel.
+Aideen Audit is actively being improved. Here are some of the planned features:
+
+- [ ] Account for income from sources like the Express Supply Pass and Nameless Honor.
+- [ ] Better mobile UX for the instructions panel.
+- [ ] Refactor CSS into SCSS.
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/kitbur/aideen-audit/issues). If you'd like to contribute, please fork the repository, use a feature branch, and make a pull request.

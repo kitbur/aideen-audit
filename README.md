@@ -33,3 +33,4 @@ Try the live calculator here: [hsr-calculator](https://kitbur.github.io/hsr-calc
 -   [ ] Toggle all option in the top-up bonus input section.
 -   [X] Visible indicator for bonus shards.
 -   [ ] Dynamic pull totals depending on 50/50 toggle.
+-   [ ] Add instructions to right panel before calculate is clicked.

@@ -486,16 +486,133 @@ table tbody td:not(:first-child) {
   ========================= */
 
 @media (max-width: 800px) {
+  body {
+    align-items: flex-start;
+    padding: 1em;
+  }
+
   main {
     grid-template-columns: 1fr;
     gap: 1.5em;
   }
 
-  body {
-    padding: 1em;
-  }
-
   h1 {
     font-size: 1.8em;
+  }
+
+  #bonusToggles .toggleGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em 2em;
+  }
+
+  #bonusToggles .toggleAllContainer label {
+    display: none;
+  }
+
+  #bonusToggles .toggleAllContainer {
+    gap: 0;
+    right: 1.75em;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table, 
+  table tbody, 
+  table tr, 
+  table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Fieldset styling for output table */
+  table tbody tr {
+    position: relative;
+    border: 1px solid var(--hsr-border-color);
+    border-radius: 4px;
+    padding: 1.5em 1em 1em;
+    margin: 2.5em 0;
+  }
+
+  table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+  
+  table td {
+    border: none;
+  }
+
+  table tbody tr td:first-child {
+    position: absolute;
+    top: -0.8em;
+    left: 0.8em;
+    background: var(--hsr-panel-bg);
+    padding: 0 0.5em;
+    margin: 0;
+    font-weight: 600;
+    color: var(--hsr-accent-blue);
+    letter-spacing: 1px;
+    font-size: 1em;
+    text-align: left;
+    width: auto;
+  }
+
+  td.resultValue {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6em 0;
+    text-align: right;
+    font-size: 1em;
+  }
+
+  td.resultValue:not(:last-of-type) {
+      border-bottom: 1px solid rgba(85, 92, 110, 0.4);
+  }
+
+  /* Result Labels */
+  .resultValue::before {
+    font-weight: 500;
+    color: var(--hsr-text-secondary);
+    text-align: left;
+  }
+
+  #passesSoft::before, #jadesSoft::before, #packsSoft::before, #costSoft::before {
+    content: 'Soft Pity (~75)';
+  }
+  
+  #passesHard::before, #jadesHard::before, #packsHard::before, #costHard::before {
+    content: 'Hard Pity (90)';
+  }
+
+  /* Oneiric Packs */
+  td#packsSoft, 
+  td#packsHard {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .oneiricList ul {
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oneiricList li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+    padding: 0.2em 0 0.2em 0.8em;
+  }
+
+  .oneiricList li .minorText {
+    display: inline-block;
+    width: 25px;
+    text-align: right;
+    color: var(--hsr-text-secondary);
   }
 }

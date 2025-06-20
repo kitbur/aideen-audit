@@ -92,10 +92,20 @@ function validateInput(event) {
         input.classList.add('invalid');
         input.classList.add('shakeError');
 
-        const errorMessage = `Invalid value. The maximum is ${max}.`;
-        pityError.textContent = errorMessage;
-        passesError.textContent = errorMessage;
-        jadesError.textContent = errorMessage;
+        let errorMessage = '';
+        if (value > max) {
+          errorMessage = `Value cannot be more than ${max}.`;
+        } else if (value < min) {
+          errorMessage = `Value cannot be less than ${min}.`;
+        }
+
+        if (input.id === 'currentPity') {
+          pityError.textContent = errorMessage;
+        } else if (input.id === 'specialPasses') {
+          passesError.textContent = errorMessage;
+        } else if (input.id === 'jades') {
+          jadesError.textContent = errorMessage;
+        }
 
         const handleAnimationEnd = () => {
             const correctedValue = value > max ? max : min;

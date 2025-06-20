@@ -38,11 +38,6 @@ body {
   letter-spacing: 0.3px;
 }
 
-ul {
-  list-style: none;
-  text-align: left;
-}
-
 /* =========================
   Layout
   ========================= */
@@ -363,6 +358,7 @@ input[type="checkbox"]:checked::before {
   Table Styles
   ========================= */
 table {
+  table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
   margin-top: 1.5em;
@@ -383,6 +379,10 @@ table th {
   letter-spacing: 1px;
 }
 
+table th:first-child {
+  width: 25%;
+}
+
 table tbody tr td:first-child {
   text-align: left;
   font-weight: 700;
@@ -397,6 +397,18 @@ table tbody td:not(:first-child) {
   font-weight: 700;
   font-size: 1.1em;
   color: var(--hsr-accent-gold);
+}
+
+.oneiricList {
+  padding: 0.8em 0;
+}
+
+.oneiricList ul {
+  display: inline-block;
+  list-style: none;
+  text-align: left;
+  margin: 0;
+  padding: 0;
 }
 
 /* =========================

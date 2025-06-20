@@ -74,13 +74,17 @@ function updateToggleAllState() {
 CALCULATE_BUTTON.addEventListener('click', (event) => {
     event.preventDefault();
 
+    const currentPity = parseInt(CURRENT_PITY.value) || 0;
+    const specialPasses = parseInt(SPECIAL_PASSES.value) || 0;
+    const jades = parseInt(JADES.value) || 0;
+
     resultCells.forEach(cell => {
         cell.classList.remove('visible');
     });
 
     const pityTotals = checkPityTotal();
-    const pulls = calculatePullsUntilPity(pityTotals);
-    const passes = calculateTotalPasses();
+    const pulls = calculatePullsUntilPity(pityTotals, currentPity);
+    const passes = calculateTotalPasses(jades, specialPasses);
     const amountNeeded = calculateAmountNeededForPity(pulls, passes);
 
     const bonusToggles = Object.fromEntries(
@@ -164,14 +168,14 @@ function checkPityTotal() {
     return { hardPity, softPity };
 }
 
-function calculatePullsUntilPity({ hardPity, softPity }) {
-    const pullsUntilHardPity = hardPity - Number(CURRENT_PITY.value);
-    const pullsUntilSoftPity = softPity - Number(CURRENT_PITY.value);
+function calculatePullsUntilPity({ hardPity, softPity }, currentPity) {
+    const pullsUntilHardPity = Math.max(0, hardPity - currentPity);
+    const pullsUntilSoftPity = Math.max(0, softPity - currentPity);
     return { pullsUntilHardPity, pullsUntilSoftPity };
 }
 
-function calculateTotalPasses() {
-    const totalPasses = Math.floor((Number(JADES.value) / 160) + Number(SPECIAL_PASSES.value));
+function calculateTotalPasses(jades, specialPasses) {
+    const totalPasses = Math.floor((jades / 160) + specialPasses);
     return { totalPasses };
 }
 
@@ -182,7 +186,7 @@ function calculateAmountNeededForPity(pulls, passes) {
     let neededJadesSoftPity = 0;
     if (passes.totalPasses < pulls.pullsUntilHardPity) {
         neededPassesHardPity = Math.ceil(pulls.pullsUntilHardPity - passes.totalPasses);
-        neededPassesSoftPity = Math.ceil(pulls.pullsUntilSoftPity - passes.totalPasses);
+        neededPassesSoftPity = Math.max(0, Math.ceil(pulls.pullsUntilSoftPity - passes.totalPasses));
         neededJadesHardPity = neededPassesHardPity * 160;
         neededJadesSoftPity = neededPassesSoftPity * 160;
     }

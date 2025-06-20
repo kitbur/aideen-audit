@@ -23,6 +23,7 @@ const gif = document.querySelector('#gifContainer img');
 const pityError = document.querySelector('#pityError');
 const passesError = document.querySelector('#passesError');
 const jadesError = document.querySelector('#jadesError');
+const instructionsToggle = document.querySelector('#toggleInstructionsButton');
 
 // Get references to output elements
 const PULLS_TOTAL_DISPLAY = document.querySelector('#pullsTotal');
@@ -133,6 +134,7 @@ CALCULATE_BUTTON.addEventListener('click', (event) => {
 
     INSTRUCTIONS_PANEL.style.display = 'none';
     RESULTS_PANEL.style.display = 'block';
+    instructionsToggle.style.display = 'block';
 
     let currentPity = Math.min(parseInt(CURRENT_PITY.value) || 0, 90);
     let specialPasses = Math.min(parseInt(SPECIAL_PASSES.value) || 0, 999999);
@@ -163,6 +165,18 @@ CALCULATE_BUTTON.addEventListener('click', (event) => {
     const oneiricCosts = calculateNeededOneiric(amountNeeded, bonusToggles, selectedRegionData);     
 
     displayResults(passes, amountNeeded, oneiricCosts);
+});
+
+instructionsToggle.addEventListener('click', () => {
+  const isResultsVisible = RESULTS_PANEL.style.display === 'block';
+
+  if (isResultsVisible) {
+    RESULTS_PANEL.style.display = 'none';
+    INSTRUCTIONS_PANEL.style.display = 'block';
+  } else {
+    INSTRUCTIONS_PANEL.style.display = 'none';
+    RESULTS_PANEL.style.display = 'block';
+  }
 });
 
 async function loadPriceData() {

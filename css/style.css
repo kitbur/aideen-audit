@@ -455,6 +455,26 @@ input.invalid:focus {
   text-decoration: none;
 }
 
+#toggleInstructionsButton {
+  position: absolute;
+  top: 1.25em;
+  right: 1.25em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: var(--hsr-text-secondary);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+#toggleInstructionsButton:hover {
+  opacity: 1;
+  color: var(--hsr-accent-blue);
+  transform: scale(1.1);
+}
+
 /* =========================
   Output & Animation
   ========================= */

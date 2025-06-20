@@ -107,6 +107,13 @@ function validateInput(event) {
     } else {
         input.classList.remove('invalid');
     }
+    checkFormValidity();
+}
+
+function checkFormValidity() {
+    const validatedInputs = document.querySelectorAll('#currentPity, #specialPasses, #jades');
+    const isAnyInputInvalid = Array.from(validatedInputs).some(input => input.classList.contains('invalid'));
+    CALCULATE_BUTTON.disabled = isAnyInputInvalid;
 }
 
 // Syncs the "Toggle All" checkbox based on the state of individual checkboxes

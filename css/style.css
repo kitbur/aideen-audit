@@ -5,7 +5,7 @@
   ========================= */
 :root {
   --hsr-bg: #13151a;
-  --hsr-panel-bg: rgba(33, 37, 48, 0.85);
+  --hsr-panel-bg: #1e222c;
   --hsr-accent-blue: #82d9e0;
   --hsr-accent-gold: #D2A855;
   --hsr-text-primary: #d4d4d4;
@@ -275,6 +275,7 @@ input[type="checkbox"]:checked::before {
   border-radius: 4px;
   padding: 1em;
   margin-top: 0.5em;
+  position: relative;
 }
 
 #bonusToggles legend {
@@ -282,6 +283,41 @@ input[type="checkbox"]:checked::before {
   color: var(--hsr-accent-blue);
   font-weight: 600;
   letter-spacing: 1px;
+}
+
+#bonusToggles .toggleAllContainer {
+  position: absolute;
+  top: -1.30em;
+  right: 1.25em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: var(--hsr-panel-bg);
+  padding: 0 0.5em;
+}
+
+#bonusToggles .toggleAllContainer label {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--hsr-text-secondary);
+  text-transform: uppercase;
+  padding: 0;
+}
+
+#toggleAllBonuses {
+  width: 42px;
+  height: 22px;
+}
+
+#toggleAllBonuses::before {
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 3px;
+}
+
+#toggleAllBonuses:checked::before {
+  transform: translateX(19px);
 }
 
 #bonusToggles .toggleGrid {

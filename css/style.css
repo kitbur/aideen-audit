@@ -99,7 +99,7 @@ h1 {
   font-size: 2em;
   color: var(--hsr-accent-gold);
   text-align: center;
-  margin-bottom: 1em;
+  margin: 0 0 1em 0;
   letter-spacing: 1.5px;
 }
 

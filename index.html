@@ -16,25 +16,25 @@
                 <h1>Warp Cost Calculator</h1>
                 <form>
                     <label for="currentPity">
-						<img src="img/tearsOfDreams.png" alt="Tears of Dreams Icon" class="labelIcon">
-						Current Pity
-					</label>
-                    <input id="currentPity" type="number" placeholder="0">
+                        <img src="img/tearsOfDreams.png" alt="Tears of Dreams Icon" class="labelIcon">
+                        Current Pity
+                    </label>
+                    <input id="currentPity" type="number" placeholder="0" min="0" max="179">
                     <label for="guaranteed">
-						<img src="img/praiseOfHighMorals.png" alt="Praise of High Morals Icon" class="labelIcon">
-						Guaranteed Character?
-					</label>
+                        <img src="img/praiseOfHighMorals.png" alt="Praise of High Morals Icon" class="labelIcon">
+                        Guaranteed Character?
+                    </label>
                     <input type="checkbox" id="guaranteed">
                     <label for="specialPasses">
-						<img src="img/specialPass.png" alt="Star Rail Special Pass Icon" class="labelIcon">
-						Special Passes
-					</label>
-                    <input id="specialPasses" type="number" placeholder="0">
+                        <img src="img/specialPass.png" alt="Star Rail Special Pass Icon" class="labelIcon">
+                        Special Passes
+                    </label>
+                    <input id="specialPasses" type="number" placeholder="0" min="0" max="999999">
                     <label for="jades">
-						<img src="img/stellarJade.png" alt="Stellar Jade Icon" class="labelIcon">
-						Stellar Jades
-					</label>
-                    <input id="jades" type="number" placeholder="0">
+                        <img src="img/stellarJade.png" alt="Stellar Jade Icon" class="labelIcon">
+                        Stellar Jades
+                    </label>
+                    <input id="jades" type="number" placeholder="0" min="0" max="9999999">
                     <fieldset id="bonusToggles">
                         <legend>&times2 Top-Up Bonuses</legend>
                         <div class="toggleAllContainer">
@@ -116,9 +116,9 @@
                 </div>
             </section>
         </main>
-		<a href="https://github.com/kitbur/hsr-calculator" id="githubLink" target="_blank" rel="noopener noreferrer">
-			<img src="img/github.svg" alt="GitHub Repository">
-		</a>
+        <a href="https://github.com/kitbur/hsr-calculator" id="githubLink" target="_blank" rel="noopener noreferrer">
+            <img src="img/github.svg" alt="GitHub Repository">
+        </a>
 
         <script type="text/javascript" src="js/main.js"></script>
     </body>

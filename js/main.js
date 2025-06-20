@@ -74,9 +74,17 @@ function updateToggleAllState() {
 CALCULATE_BUTTON.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const currentPity = parseInt(CURRENT_PITY.value) || 0;
-    const specialPasses = parseInt(SPECIAL_PASSES.value) || 0;
-    const jades = parseInt(JADES.value) || 0;
+    let currentPity = Math.min(parseInt(CURRENT_PITY.value) || 0, 179);
+    let specialPasses = Math.min(parseInt(SPECIAL_PASSES.value) || 0, 999999);
+    let jades = Math.min(parseInt(JADES.value) || 0, 9999999);
+    
+    currentPity = Math.max(0, currentPity);
+    specialPasses = Math.max(0, specialPasses);
+    jades = Math.max(0, jades);
+
+    CURRENT_PITY.value = currentPity;
+    SPECIAL_PASSES.value = specialPasses;
+    JADES.value = jades;
 
     resultCells.forEach(cell => {
         cell.classList.remove('visible');
@@ -217,7 +225,6 @@ function calculateNeededOneiric({ neededJadesHardPity, neededJadesSoftPity }, bo
     const currency = regionData.currency || '$';
     const prices = regionData.prices;
 
-    // Define the packs with their BASE values.
     const basePacks = [
         { baseJades: 60, cost: prices.shards60, name: '60' },
         { baseJades: 300, cost: prices.shards300, name: '300' },

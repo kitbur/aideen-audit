@@ -399,6 +399,63 @@ input.invalid:focus {
 }
 
 /* =========================
+  Instructions Panel
+  ========================= */
+
+#instructionsPanel {
+  line-height: 1.6;
+}
+
+#instructionsPanel h2 {
+  text-align: center;
+  color: var(--hsr-accent-gold);
+  margin-bottom: 1.5em;
+  font-size: 1.5em;
+}
+
+#instructionsPanel h4 {
+  color: var(--hsr-accent-blue);
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid var(--hsr-border-color);
+  padding-bottom: 0.3em;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+}
+
+#instructionsPanel p {
+  color: var(--hsr-text-secondary);
+  text-align: justify;
+}
+
+#instructionsPanel ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#instructionsPanel li {
+  margin-bottom: 0.8em;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+#instructionsPanel li::before {
+  content: '»';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--hsr-accent-blue);
+  font-weight: 700;
+}
+
+#instructionsPanel strong,
+#instructionsPanel u {
+  color: var(--hsr-accent-gold);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =========================
   Output & Animation
   ========================= */
 

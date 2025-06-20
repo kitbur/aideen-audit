@@ -34,6 +34,8 @@ const PACKS_SOFT_DISPLAY = document.querySelector('#packsSoft');
 const PACKS_HARD_DISPLAY = document.querySelector('#packsHard');
 const COST_SOFT_DISPLAY = document.querySelector('#costSoft');
 const COST_HARD_DISPLAY = document.querySelector('#costHard');
+const INSTRUCTIONS_PANEL = document.querySelector('#instructionsPanel');
+const RESULTS_PANEL = document.querySelector('#resultsPanel');
 
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPriceData();
@@ -128,6 +130,9 @@ function updateToggleAllState() {
 // Run calculations and update the UI when the `calculate` button is clicked
 CALCULATE_BUTTON.addEventListener('click', (event) => {
     event.preventDefault();
+
+    INSTRUCTIONS_PANEL.style.display = 'none';
+    RESULTS_PANEL.style.display = 'block';
 
     let currentPity = Math.min(parseInt(CURRENT_PITY.value) || 0, 90);
     let specialPasses = Math.min(parseInt(SPECIAL_PASSES.value) || 0, 999999);

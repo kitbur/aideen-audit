@@ -403,20 +403,11 @@ input.invalid:focus {
   ========================= */
 
 #instructionsPanel {
-  line-height: 1.6;
-}
-
-#instructionsPanel h2 {
-  text-align: center;
-  color: var(--hsr-accent-gold);
-  margin-bottom: 1.5em;
-  font-size: 1.5em;
+  line-height: 1.5;
 }
 
 #instructionsPanel h4 {
   color: var(--hsr-accent-blue);
-  margin-top: 1.5em;
-  margin-bottom: 1em;
   border-bottom: 1px solid var(--hsr-border-color);
   padding-bottom: 0.3em;
   font-size: 1.1em;
@@ -431,12 +422,17 @@ input.invalid:focus {
 #instructionsPanel ul {
   list-style: none;
   padding-left: 0;
+  margin-top: 0.8em;
 }
 
 #instructionsPanel li {
   margin-bottom: 0.8em;
   padding-left: 1.5em;
   position: relative;
+}
+
+#instructionsPanel li:last-child {
+  margin-bottom: 1.5em;
 }
 
 #instructionsPanel li::before {
@@ -448,8 +444,7 @@ input.invalid:focus {
   font-weight: 700;
 }
 
-#instructionsPanel strong,
-#instructionsPanel u {
+#instructionsPanel strong {
   color: var(--hsr-accent-gold);
   font-weight: 600;
   text-decoration: none;

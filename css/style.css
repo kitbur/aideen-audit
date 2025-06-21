@@ -220,6 +220,7 @@ input[type="number"] {
   font-size: 1em;
   text-align: right;
   width: 100%;
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 

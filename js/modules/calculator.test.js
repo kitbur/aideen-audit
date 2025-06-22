@@ -170,4 +170,25 @@ describe('calculateCost', () => {
         expect(cost.packsSoft).toContain('bonusActive');
         expect(cost.packsSoft).toContain('6480');
     });
+
+    it('should return N/A if pricing data is missing', () => {
+        const testRegionDataWithNoPrices = {
+            currency: 'CNY',
+            prices: {
+                shards60: null,
+                shards300: undefined,
+                shards980: null,
+                shards1980: null,
+                shards3280: null,
+                shards6480: null
+            }
+        };
+        const amountNeeded = { neededJadesSoftPity: 7000, neededJadesHardPity: 10000 };
+        const bonusToggles = { shards60: false, shards300: true, shards980: false, shards1980: true, shards3280: true, shards6480: true };
+
+        const cost = calculator.calculateCost(amountNeeded, bonusToggles, testRegionDataWithNoPrices);
+
+        expect(cost.costSoft).toBe('N/A');
+        expect(cost.packsSoft).toBe('N/A');
+    });
 });

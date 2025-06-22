@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.0] - 2025-06-22
+
 This marks the first official, stable release of Aideen Audit! This release includes the fully functional calculator logic, a complete JavaScript refactor, style overhaul, and numerous new features.
 
 ### Added
@@ -16,7 +18,7 @@ This marks the first official, stable release of Aideen Audit! This release incl
 -   **Granular Bonus Toggles:** Implemented individual toggles for each first-time top-up bonus, including a "Toggle All" option for convenience.
 -   **Input Validation:** Integrated robust validation to prevent invalid data entry and provide clear user feedback on errors.
 -   **Instructional Panel:** Added a helpful guide explaining the pity system and app features, which appears before the first calculation.
--   **Responsive Mobile Layout:** Greatly improved the layout and user experience on mobile devices, including a completely re-formatted results table.
+-   **Responsive Mobile Layout:** Greatly improved the layout and user experience on mobile devices, including a completely re-formatted results table, and a on-demand instructional panel overhaul.
 -   **UI Animations:** Added animations for calculation results.
 -   **Documentation:** Implemented a `CHANGELOG.md` and `README.md` to document the project.
 
@@ -30,3 +32,6 @@ This marks the first official, stable release of Aideen Audit! This release incl
 
 -   **Input Logic:** Ensured calculations do not allow for negative resource values.
 -   **Cost Calcuations:** Completely overhauled the calculator's logic to be much more accurate and precise. 
+
+[Unreleased]: https://github.com/kitbur/aideen-audit/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/kitbur/aideen-audit/releases/tag/v1.0.0

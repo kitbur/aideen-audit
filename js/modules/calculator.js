@@ -13,7 +13,8 @@ export function calculatePullsUntilPity(pityGoals, currentPity) {
 }
 
 export function calculateTotalPasses(jades, specialPasses) {
-    return Math.floor((jades / JADES_PER_PULL) + specialPasses);
+    const total = Math.floor((jades / JADES_PER_PULL) + specialPasses);
+    return Math.max(0, total);
 }
 
 export function calculateAmountNeeded(pullsUntil, totalPasses) {

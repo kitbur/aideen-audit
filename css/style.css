@@ -471,6 +471,10 @@ input.invalid:focus {
   transform: scale(1.1);
 }
 
+#toggleInstructionsButton .iconClose {
+    display: none;
+}
+
 /* =========================
   Output & Animation
   ========================= */

@@ -2,6 +2,8 @@ export const DOMElements = {
     // Buttons
     calculateButton: document.querySelector('#calculate'),
     instructionsToggle: document.querySelector('#toggleInstructionsButton'),
+    iconClose: document.querySelector('#toggleInstructionsButton .iconClose'),
+    iconInfo: document.querySelector('#toggleInstructionsButton .iconInfo'),
 
     // User Input Fields
     currentPity: document.querySelector('#currentPity'),
@@ -111,12 +113,18 @@ export function showResultsPanel() {
     DOMElements.panels.instructions.style.display = 'none';
     DOMElements.panels.results.style.display = 'block';
     DOMElements.instructionsToggle.style.display = 'block';
+    DOMElements.iconInfo.style.display = 'block';
+    DOMElements.iconClose.style.display = 'none';
 }
 
 export function togglePanels() {
     const isResultsVisible = DOMElements.panels.results.style.display === 'block';
     DOMElements.panels.results.style.display = isResultsVisible ? 'none' : 'block';
     DOMElements.panels.instructions.style.display = isResultsVisible ? 'block' : 'none';
+
+    // Show the calculator icon on the instructions panel, and the info icon on the results panel.
+    DOMElements.iconInfo.style.display = isResultsVisible ? 'none' : 'block';
+    DOMElements.iconClose.style.display = isResultsVisible ? 'block' : 'none';
 }
 
 export function updateBonusCheckbox(key, isChecked) {

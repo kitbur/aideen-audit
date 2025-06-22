@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import * as calculator from './calculator.js';
-import { PITY_THRESHOLDS } from './constants.js';
+import { PITY_THRESHOLDS, JADES_PER_PULL } from './constants.js';
 
 describe('getPityGoals', () => {
     it('should return the correct thresholds for a guaranteed pull', () => {
@@ -17,6 +17,32 @@ describe('getPityGoals', () => {
 
         expect(goals.softPity).toBe(PITY_THRESHOLDS.SOFT_50_50);
         expect(goals.hardPity).toBe(PITY_THRESHOLDS.HARD_50_50);
+    });
+});
+
+describe('calculateAmountNeeded', () => {
+    it('should calculate needed passes and jades when user is short', () => {
+        const pullsUntil = { pullsUntilSoftPity: 50, pullsUntilHardPity: 70 };
+        const totalPasses = 10;
+
+        const needed = calculator.calculateAmountNeeded(pullsUntil, totalPasses);
+
+        expect(needed.neededPassesSoftPity).toBe(40);
+        expect(needed.neededJadesSoftPity).toBe(40 * JADES_PER_PULL);
+        expect(needed.neededPassesHardPity).toBe(60);
+        expect(needed.neededJadesHardPity).toBe(60 * JADES_PER_PULL);
+    });
+
+    it('should return 0 for everything if user has enough passes', () => {
+        const pullsUntil = { pullsUntilSoftPity: 50, pullsUntilHardPity: 70 };
+        const totalPasses = 100;
+
+        const needed = calculator.calculateAmountNeeded(pullsUntil, totalPasses);
+
+        expect(needed.neededPassesSoftPity).toBe(0);
+        expect(needed.neededJadesSoftPity).toBe(0);
+        expect(needed.neededPassesHardPity).toBe(0);
+        expect(needed.neededJadesHardPity).toBe(0);
     });
 });
 
@@ -90,3 +116,4 @@ describe('calculatePullsUntilPity', () => {
         expect(pullsUntil.pullsUntilHardPity).toBe(70);
     });
 });
+

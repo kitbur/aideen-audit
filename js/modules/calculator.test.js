@@ -191,4 +191,14 @@ describe('calculateCost', () => {
         expect(cost.costSoft).toBe('N/A');
         expect(cost.packsSoft).toBe('N/A');
     });
+
+    it('should return 0 cost and no packs if zero jades are needed', () => {
+        const amountNeeded = { neededJadesSoftPity: 0, neededJadesHardPity: 0 };
+        const bonusToggles = { shards60: true, shards300: true, shards980: true, shards1980: true, shards3280: true, shards6480: false };
+    
+        const cost = calculator.calculateCost(amountNeeded, bonusToggles, testRegionData);
+
+        expect(cost.costSoft).toContain('0.00');
+        expect(cost.packsSoft).toBe('None');
+    });
 });

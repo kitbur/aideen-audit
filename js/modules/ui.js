@@ -31,6 +31,7 @@ export const DOMElements = {
     },
 
     // Output Elements
+    outputSection: document.querySelector('#output'),
     gif: document.querySelector('#gifContainer img'),
     panels: {
         instructions: document.querySelector('#instructionsPanel'),

@@ -35,6 +35,15 @@ function handleCalculateClick(event) {
 
     // Pass the results to the UI to be displayed
     ui.displayResults({ totalPasses, needed, costs });
+
+    // If it's a mobile view, scroll to the top of the output section
+    const isMobile = window.matchMedia('(max-width: 800px)').matches;
+    if (isMobile) {
+        ui.DOMElements.outputSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 }
 
 function handleBonusToggle(event) {

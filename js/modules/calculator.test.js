@@ -1,13 +1,31 @@
 import { describe, it, expect } from 'vitest';
-import { calculateTotalPasses, calculatePullsUntilPity } from './calculator.js';
+import * as calculator from './calculator.js';
+import { PITY_THRESHOLDS } from './constants.js';
+
+describe('getPityGoals', () => {
+    it('should return the correct thresholds for a guaranteed pull', () => {
+        const isGuaranteed = true;
+        const goals = calculator.getPityGoals(isGuaranteed);
+
+        expect(goals.softPity).toBe(PITY_THRESHOLDS.SOFT_GUARANTEED);
+        expect(goals.hardPity).toBe(PITY_THRESHOLDS.HARD_GUARANTEED);
+    });
+
+    it('should return the correct thresholds for a 50/50 pull', () => {
+        const isGuaranteed = false;
+        const goals = calculator.getPityGoals(isGuaranteed);
+
+        expect(goals.softPity).toBe(PITY_THRESHOLDS.SOFT_50_50);
+        expect(goals.hardPity).toBe(PITY_THRESHOLDS.HARD_50_50);
+    });
+});
 
 describe('calculateTotalPasses', () => {
-
     it('should correctly sum jades and special passes', () => {
         const jades = 1600;
         const specialPasses = 5;
 
-        const totalPasses = calculateTotalPasses(jades, specialPasses);
+        const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
 
         expect(totalPasses).toBe(15);
     });
@@ -16,7 +34,7 @@ describe('calculateTotalPasses', () => {
         const jades = 0;
         const specialPasses = 20;
 
-        const totalPasses = calculateTotalPasses(jades, specialPasses);
+        const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
 
         expect(totalPasses).toBe(20);
     });
@@ -25,7 +43,7 @@ describe('calculateTotalPasses', () => {
         const jades = 3200;
         const specialPasses = 0;
 
-        const totalPasses = calculateTotalPasses(jades, specialPasses);
+        const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
 
         expect(totalPasses).toBe(20);
     });
@@ -34,7 +52,7 @@ describe('calculateTotalPasses', () => {
         const jades = 0;
         const specialPasses = 0;
         
-        const totalPasses = calculateTotalPasses(jades, specialPasses);
+        const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
         
         expect(totalPasses).toBe(0);
     });
@@ -42,12 +60,11 @@ describe('calculateTotalPasses', () => {
 });
 
 describe('calculatePullsUntilPity', () => {
-
     it('should calculate pulls needed when not guaranteed', () => {
         const pityGoals = { softPity: 75, hardPity: 150 };
         const currentPity = 10;
         
-        const pullsUntil = calculatePullsUntilPity(pityGoals, currentPity);
+        const pullsUntil = calculator.calculatePullsUntilPity(pityGoals, currentPity);
         
         expect(pullsUntil.pullsUntilSoftPity).toBe(65);
         expect(pullsUntil.pullsUntilHardPity).toBe(140);
@@ -57,7 +74,7 @@ describe('calculatePullsUntilPity', () => {
         const pityGoals = { softPity: 75, hardPity: 75 };
         const currentPity = 25;
         
-        const pullsUntil = calculatePullsUntilPity(pityGoals, currentPity);
+        const pullsUntil = calculator.calculatePullsUntilPity(pityGoals, currentPity);
         
         expect(pullsUntil.pullsUntilSoftPity).toBe(50);
         expect(pullsUntil.pullsUntilHardPity).toBe(50);
@@ -67,7 +84,7 @@ describe('calculatePullsUntilPity', () => {
         const pityGoals = { softPity: 75, hardPity: 150 };
         const currentPity = 80;
         
-        const pullsUntil = calculatePullsUntilPity(pityGoals, currentPity);
+        const pullsUntil = calculator.calculatePullsUntilPity(pityGoals, currentPity);
         
         expect(pullsUntil.pullsUntilSoftPity).toBe(0);
         expect(pullsUntil.pullsUntilHardPity).toBe(70);

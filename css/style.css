@@ -726,4 +726,9 @@ table tbody td:not(:first-child) {
     text-align: right;
     color: var(--hsr-text-secondary);
   }
+
+  #toggleInstructionsButton {
+    top: 0.3em;
+    right: 0.3em;
+  }
 }

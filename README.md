@@ -41,6 +41,29 @@ Aideen Audit is actively being improved. Here are some of the planned features:
 - [ ] Account for income from sources like the Express Supply Pass and Nameless Honor.
 - [ ] Refactor CSS into SCSS.
 
+## Development & Testing
+
+This project uses [Node.js](https://nodejs.org/) to manage development dependencies and run an automated test suite with [Vitest](https://vitest.dev/).
+
+### Getting Started
+
+To run this project locally for development or to run the tests:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/kitbur/aideen-audit.git
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the test suite:**
+    ```bash
+    npm test
+    ```
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/kitbur/aideen-audit/issues). If you'd like to contribute, please fork the repository, use a feature branch, and make a pull request.

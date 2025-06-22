@@ -117,3 +117,39 @@ describe('calculatePullsUntilPity', () => {
     });
 });
 
+describe('calculateCost', () => {
+    const testRegionData = {
+        currency: 'USD',
+        prices: {
+            shards60: 0.99,
+            shards300: 4.99,
+            shards980: 14.99,
+            shards1980: 29.99,
+            shards3280: 49.99,
+            shards6480: 99.99
+        }
+    };
+
+    it('should calculate the correct cost', () => {
+        const amountNeeded = { neededJadesSoftPity: 7000, neededJadesHardPity: 10000 };
+        const bonusToggles = { shards60: false, shards300: false, shards980: false, shards1980: false, shards3280: false, shards6480: false };
+        
+        const cost = calculator.calculateCost(amountNeeded, bonusToggles, testRegionData);
+
+        expect(cost.costSoft).toContain('108.94');
+        expect(cost.packsSoft).toContain('6480');
+        expect(cost.packsSoft).toContain('300');
+        expect(cost.packsSoft).toContain('60');
+    });
+
+    it('should utilize a first-time bonus when the needed amount is large enough', () => {
+        const amountNeeded = { neededJadesSoftPity: 13000, neededJadesHardPity: 15000 };
+        const bonusToggles = { shards60: false, shards300: false, shards980: false, shards1980: false, shards3280: false, shards6480: true };
+        
+        const cost = calculator.calculateCost(amountNeeded, bonusToggles, testRegionData);
+
+        expect(cost.costSoft).toContain('100.98');
+        expect(cost.packsSoft).toContain('bonusActive');
+        expect(cost.packsSoft).toContain('6480');
+    });
+});

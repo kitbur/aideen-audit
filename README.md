@@ -7,7 +7,7 @@
 Aideen Audit is a comprehensive financial planning tool for Honkai: Star Rail players. It moves beyond simple pull counting to provide a detailed audit of the real-world cost required to secure your next 5-star character, featuring dynamic, region-specific pricing.
 
 <p align="center">
-    <img src="img/demo.gif" alt="Aideen Audit Demo GIF" width="80%">
+    <img src="img/demo.webp" alt="Aideen Audit Demo" width="80%">
 </p>
 
 <p align="center">

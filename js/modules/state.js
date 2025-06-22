@@ -1,6 +1,7 @@
 export const state = {
     priceData: [],
     region: 'US',
+    hasCalculated: false,
     userInput: {
         currentPity: 0,
         isGuaranteed: false,
@@ -37,4 +38,8 @@ export function updateAllBonuses(value) {
     for (const key in state.bonusToggles) {
         state.bonusToggles[key] = value;
     }
+}
+
+export function setHasCalculated(value) {
+    state.hasCalculated = value;
 }

@@ -365,6 +365,21 @@ input[type="checkbox"]:checked::before {
   color: var(--hsr-bg);
 }
 
+#instructionsButtonMobile {
+  display: none;
+  position: absolute;
+  top: 0.3em;
+  right: 0.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: var(--hsr-text-secondary);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
 /* =========================
   Input Validation
   ========================= */
@@ -729,6 +744,29 @@ table tbody td:not(:first-child) {
 
   #toggleInstructionsButton {
     top: 0.3em;
-    right: 0.3em;
+    right: 0.1em;
   }
+
+  #instructionsButtonMobile {
+    display: block;
+  }
+
+  #output {
+    display: none;
+  }
+
+  #githubLink {
+    position: absolute;
+    top: 1.5em;
+    left: 1.3em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: var(--hsr-text-secondary);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
 }

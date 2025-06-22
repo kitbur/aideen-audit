@@ -1,7 +1,10 @@
+import { state } from './state.js';
+
 export const DOMElements = {
     // Buttons
     calculateButton: document.querySelector('#calculate'),
     instructionsToggle: document.querySelector('#toggleInstructionsButton'),
+    instructionsButtonMobile: document.querySelector('#instructionsButtonMobile'),
     iconClose: document.querySelector('#toggleInstructionsButton .iconClose'),
     iconInfo: document.querySelector('#toggleInstructionsButton .iconInfo'),
 
@@ -84,6 +87,9 @@ export function displayResults({ totalPasses, needed, costs }) {
     });
     DOMElements.gif.classList.remove('visible', 'shake');
 
+    // Ensure that the output container is visible
+    DOMElements.outputSection.style.display = 'grid';
+
     DOMElements.pullsTotalDisplay.innerHTML = `You have <span class="accentGold">${totalPasses.toLocaleString()}</span> available pulls.`;
     DOMElements.passesSoftDisplay.textContent = needed.neededPassesSoftPity.toLocaleString();
     DOMElements.passesHardDisplay.textContent = needed.neededPassesHardPity.toLocaleString();
@@ -119,6 +125,18 @@ export function showResultsPanel() {
 }
 
 export function togglePanels() {
+    const hasCalculated = state.hasCalculated;
+
+    // If no calculation has run, the toggle button hides the instructions on mobile
+    if (!hasCalculated) {
+        DOMElements.outputSection.style.display = 'none';
+
+        if (window.matchMedia('(max-width: 800px)').matches) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return;
+    }
+
     const isResultsVisible = DOMElements.panels.results.style.display === 'block';
     DOMElements.panels.results.style.display = isResultsVisible ? 'none' : 'block';
     DOMElements.panels.instructions.style.display = isResultsVisible ? 'block' : 'none';

@@ -44,6 +44,15 @@ describe('calculateAmountNeeded', () => {
         expect(needed.neededPassesHardPity).toBe(0);
         expect(needed.neededJadesHardPity).toBe(0);
     });
+
+    it('should clamp the result at 0 if inputs result in a negative number', () => {
+        const jades = -160;
+        const specialPasses = -9;
+    
+        const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
+
+        expect(totalPasses).toBe(0);
+    });
 });
 
 describe('calculateTotalPasses', () => {
@@ -80,6 +89,15 @@ describe('calculateTotalPasses', () => {
         
         const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
         
+        expect(totalPasses).toBe(0);
+    });
+
+    it('should clamp the result at 0 if inputs result in a negative number', () => {
+        const jades = -1600;
+        const specialPasses = -5;
+    
+        const totalPasses = calculator.calculateTotalPasses(jades, specialPasses);
+
         expect(totalPasses).toBe(0);
     });
 

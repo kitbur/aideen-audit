@@ -44,6 +44,6 @@ This marks the first official, stable release of Aideen Audit! This release incl
 - **Input Logic:** Ensured calculations do not allow for negative resource values.
 - **Cost Calcuations:** Completely overhauled the calculator's logic to be much more accurate and precise. 
 
-[Unreleased]: https://github.com/kitbur/aideen-audit/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/kitbur/aideen-audit/compare/v1.0.1...HEAD
 [1.0.1]: https://github.com/kitbur/aideen-audit/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/kitbur/aideen-audit/releases/tag/v1.0.0

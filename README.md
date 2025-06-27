@@ -18,12 +18,12 @@ Aideen Audit is a comprehensive financial planning tool for Honkai: Star Rail pl
 
 ## Key Features
 
-- **Pity Planning:** Calculates the exact pulls needed for both soft (75/150) and hard (90/180) pity thresholds, accounting for your guaranteed status.
-- **Real-World Cost Analysis:** See the estimated total cost of your required pulls, calculated using a cost-effective combination of Oneiric Shard packs.
-- **Global Currency Support:** Select your local region to get accurate pricing data and cost estimates in your own currency. No more manual conversions!
-- **Resource Tracking:** Input your current pity, Stellar Jades, and Special Passes.
-- **First-Time Bonus Modeling:** Toggle first-time purchase bonuses for each individual Oneiric Shard pack to see how they impact your overall cost, allowing for precise budget optimization.
-- **Shopping List:** Generates an optimal shopping list of efficient top-up purchases.
+-   **Pity Planning:** Calculates the exact pulls needed for both soft (75/150) and hard (90/180) pity thresholds, accounting for your guaranteed status.
+-   **Real-World Cost Analysis:** See the estimated total cost of your required pulls, calculated using a cost-effective combination of Oneiric Shard packs.
+-   **Global Currency Support:** Select your local region to get accurate pricing data and cost estimates in your own currency. No more manual conversions!
+-   **Resource Tracking:** Input your current pity, Stellar Jades, and Special Passes.
+-   **First-Time Bonus Modeling:** Toggle first-time purchase bonuses for each individual Oneiric Shard pack to see how they impact your overall cost, allowing for precise budget optimization.
+-   **Shopping List:** Generates an optimal shopping list of efficient top-up purchases.
 
 ## Technologies
 
@@ -38,8 +38,8 @@ Aideen Audit is a comprehensive financial planning tool for Honkai: Star Rail pl
 
 Aideen Audit is actively being improved. Here are some of the planned features:
 
-- [ ] Account for income from sources like the Express Supply Pass and Nameless Honor.
-- [ ] Refactor CSS into SCSS.
+-   [ ] Account for income from sources like the Express Supply Pass and Nameless Honor.
+-   [ ] Refactor CSS into SCSS.
 
 ## Development & Testing
 
@@ -50,11 +50,13 @@ This project uses [Node.js](https://nodejs.org/) to manage development dependenc
 To run this project locally for development or to run the tests:
 
 1.  **Clone the repository:**
+
     ```bash
     git clone https://github.com/kitbur/aideen-audit.git
     ```
 
 2.  **Install dependencies:**
+
     ```bash
     npm install
     ```

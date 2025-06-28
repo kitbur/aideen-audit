@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-06-28
+
+### Added
+
+-   Automated weekly fetching of regional price data using GitHub Actions.
+-   Added .prettierignore to prevent formatting issues with configuration files.
+
+### Changed
+
+-   Applied Prettier styling across the codebase for consistent formatting.
+
+### Fixed
+
+-   Corrected version linking URLs in the `CHANGELOG` documentation for better readability.
+-   Configured GitHub Actions permissions to allow automated pushes for the price update.
+
 ## [1.0.1] - 2025-06-22
 
 ### Added
@@ -44,6 +60,7 @@ This marks the first official, stable release of Aideen Audit! This release incl
 -   **Input Logic:** Ensured calculations do not allow for negative resource values.
 -   **Cost Calcuations:** Completely overhauled the calculator's logic to be much more accurate and precise.
 
-[Unreleased]: https://github.com/kitbur/aideen-audit/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/kitbur/aideen-audit/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/kitbur/aideen-audit/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/kitbur/aideen-audit/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/kitbur/aideen-audit/releases/tag/v1.0.0

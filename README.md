@@ -34,13 +34,6 @@ Aideen Audit is a comprehensive financial planning tool for Honkai: Star Rail pl
     <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
 </p>
 
-## Future Enhancements
-
-Aideen Audit is actively being improved. Here are some of the planned features:
-
--   [ ] Account for income from sources like the Express Supply Pass and Nameless Honor.
--   [ ] Refactor CSS into SCSS.
-
 ## Development & Testing
 
 This project uses [Node.js](https://nodejs.org/) to manage development dependencies and run an automated test suite with [Vitest](https://vitest.dev/).

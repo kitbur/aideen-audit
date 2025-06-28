@@ -1,370 +1,370 @@
 [
-	{
-		"region": "Australia",
-		"flag": "🇦🇺",
-		"currency": "AU$",
-		"prices": {
-			"pass": 7.99,
-			"glory": 14.99,
-			"medal": 29.99,
-			"shards60": 1.99,
-			"shards300": 7.99,
-			"shards980": 22.99,
-			"shards1980": 49.99,
-			"shards3280": 79.99,
-			"shards6480": 149.99
-		}
-	},
-	{
-		"region": "Brazil",
-		"flag": "🇧🇷",
-		"currency": "R$",
-		"prices": {
-			"pass": 24.9,
-			"glory": 49.9,
-			"medal": 99.9,
-			"shards60": 4.9,
-			"shards300": 24.9,
-			"shards980": 79.9,
-			"shards1980": 149.9,
-			"shards3280": 249.9,
-			"shards6480": 499.9
-		}
-	},
-	{
-		"region": "Canada",
-		"flag": "🇨🇦",
-		"currency": "C$",
-		"prices": {
-			"pass": 6.99,
-			"glory": 12.99,
-			"medal": 24.99,
-			"shards60": 1.29,
-			"shards300": 6.99,
-			"shards980": 19.99,
-			"shards1980": 39.99,
-			"shards3280": 69.99,
-			"shards6480": 129.99
-		}
-	},
-	{
-		"region": "China",
-		"flag": "🇨🇳",
-		"currency": "CNY¥",
-		"prices": {
-			"pass": 30.0,
-			"glory": 68.0,
-			"medal": 128.0,
-			"shards60": 6.0,
-			"shards300": 30.0,
-			"shards980": 98.0,
-			"shards1980": 198.0,
-			"shards3280": 328.0,
-			"shards6480": 648.0
-		}
-	},
-	{
-		"region": "EU",
-		"flag": "🇪🇺",
-		"currency": "€",
-		"prices": {
-			"pass": 5.99,
-			"glory": 9.99,
-			"medal": 20.99,
-			"shards60": 0.99,
-			"shards300": 5.99,
-			"shards980": 17.99,
-			"shards1980": 34.99,
-			"shards3280": 59.99,
-			"shards6480": 99.99
-		}
-	},
-	{
-		"region": "Hong Kong",
-		"flag": "🇭🇰",
-		"currency": "HK$",
-		"prices": {
-			"pass": 38.0,
-			"glory": null,
-			"medal": null,
-			"shards60": 8.0,
-			"shards300": 38.0,
-			"shards980": 118.0,
-			"shards1980": 228.0,
-			"shards3280": 388.0,
-			"shards6480": 788.0
-		}
-	},
-	{
-		"region": "India",
-		"flag": "🇮🇳",
-		"currency": "₹",
-		"prices": {
-			"pass": 499.0,
-			"glory": 999.0,
-			"medal": 1999.0,
-			"shards60": 99.0,
-			"shards300": 499.0,
-			"shards980": 1499.0,
-			"shards1980": 2999.0,
-			"shards3280": 4999.0,
-			"shards6480": 9900.0
-		}
-	},
-	{
-		"region": "Indonesia",
-		"flag": "🇮🇩",
-		"currency": "Rp",
-		"prices": {
-			"pass": 79000.0,
-			"glory": 159000.0,
-			"medal": 329000.0,
-			"shards60": 16000.0,
-			"shards300": 79000.0,
-			"shards980": 249000.0,
-			"shards1980": 479000.0,
-			"shards3280": 799000.0,
-			"shards6480": 1599000.0
-		}
-	},
-	{
-		"region": "Japan",
-		"flag": "🇯🇵",
-		"currency": "JPY¥",
-		"prices": {
-			"pass": 610.0,
-			"glory": 1220.0,
-			"medal": 2480.0,
-			"shards60": 120.0,
-			"shards300": 610.0,
-			"shards980": 1840.0,
-			"shards1980": 3680.0,
-			"shards3280": 6100.0,
-			"shards6480": 12000.0
-		}
-	},
-	{
-		"region": "Kazakhstan",
-		"flag": "🇰🇿",
-		"currency": "₸",
-		"prices": {
-			"pass": 1990.0,
-			"glory": null,
-			"medal": null,
-			"shards60": 420.0,
-			"shards300": 1990.0,
-			"shards980": 6190.0,
-			"shards1980": 11990.0,
-			"shards3280": 20990.0,
-			"shards6480": 40990.0
-		}
-	},
-	{
-		"region": "Korea",
-		"flag": "🇰🇷",
-		"currency": "₩",
-		"prices": {
-			"pass": 5900.0,
-			"glory": 12000.0,
-			"medal": 25000.0,
-			"shards60": 1200.0,
-			"shards300": 5900.0,
-			"shards980": 19000.0,
-			"shards1980": 37000.0,
-			"shards3280": 65000.0,
-			"shards6480": 119000.0
-		}
-	},
-	{
-		"region": "Malaysia",
-		"flag": "🇲🇾",
-		"currency": "RM",
-		"prices": {
-			"pass": 19.9,
-			"glory": 39.9,
-			"medal": 79.9,
-			"shards60": 4.9,
-			"shards300": 19.9,
-			"shards980": 59.9,
-			"shards1980": 129.9,
-			"shards3280": 199.9,
-			"shards6480": 399.9
-		}
-	},
-	{
-		"region": "Mexico",
-		"flag": "🇲🇽",
-		"currency": "Mex$",
-		"prices": {
-			"pass": 99.0,
-			"glory": 199.0,
-			"medal": 399.0,
-			"shards60": 19.0,
-			"shards300": 99.0,
-			"shards980": 299.0,
-			"shards1980": 599.0,
-			"shards3280": 999.0,
-			"shards6480": 1999.0
-		}
-	},
-	{
-		"region": "Paraguay",
-		"flag": "🇵🇾",
-		"currency": "Gs",
-		"prices": {
-			"pass": 30000.0,
-			"glory": 70000.0,
-			"medal": null,
-			"shards60": 10000.0,
-			"shards300": 30000.0,
-			"shards980": 100000.0,
-			"shards1980": 200000.0,
-			"shards3280": 350000.0,
-			"shards6480": 700000.0
-		}
-	},
-	{
-		"region": "Phillipines",
-		"flag": "🇵🇭",
-		"currency": "₱",
-		"prices": {
-			"pass": 299.0,
-			"glory": 499.0,
-			"medal": 999.0,
-			"shards60": 49.0,
-			"shards300": 299.0,
-			"shards980": 799.0,
-			"shards1980": 1790.0,
-			"shards3280": 2990.0,
-			"shards6480": 4990.0
-		}
-	},
-	{
-		"region": "Russia",
-		"flag": "🇷🇺",
-		"currency": "₽",
-		"prices": {
-			"pass": 449.0,
-			"glory": 899.0,
-			"medal": 1790.0,
-			"shards60": 99.0,
-			"shards300": 449.0,
-			"shards980": 1390.0,
-			"shards1980": 2790.0,
-			"shards3280": 4990.0,
-			"shards6480": 8990.0
-		}
-	},
-	{
-		"region": "Singapore",
-		"flag": "🇸🇬",
-		"currency": "SGD$",
-		"prices": {
-			"pass": 6.98,
-			"glory": 14.98,
-			"medal": 29.98,
-			"shards60": 1.48,
-			"shards300": 6.98,
-			"shards980": 21.98,
-			"shards1980": 42.98,
-			"shards3280": 73.98,
-			"shards6480": 149.98
-		}
-	},
-	{
-		"region": "Taiwan",
-		"flag": "🇹🇼",
-		"currency": "TWD$",
-		"prices": {
-			"pass": 170.0,
-			"glory": 330.0,
-			"medal": 670.0,
-			"shards60": 33.0,
-			"shards300": 170.0,
-			"shards980": 490.0,
-			"shards1980": 990.0,
-			"shards3280": 1690.0,
-			"shards6480": 3290.0
-		}
-	},
-	{
-		"region": "Thailand",
-		"flag": "🇹🇭",
-		"currency": "฿",
-		"prices": {
-			"pass": 179.0,
-			"glory": 349.0,
-			"medal": 729.0,
-			"shards60": 35.0,
-			"shards300": 179.0,
-			"shards980": 549.0,
-			"shards1980": 1100.0,
-			"shards3280": 1800.0,
-			"shards6480": 3700.0
-		}
-	},
-	{
-		"region": "Turkey",
-		"flag": "🇹🇷",
-		"currency": "₺",
-		"prices": {
-			"pass": 14999.0,
-			"glory": 299.99,
-			"medal": 599.99,
-			"shards60": 2999.0,
-			"shards300": 14999.0,
-			"shards980": 45999.0,
-			"shards1980": 91999.0,
-			"shards3280": 149999.0,
-			"shards6480": 299999.0
-		}
-	},
-	{
-		"region": "UK",
-		"flag": "🇬🇧",
-		"currency": "£",
-		"prices": {
-			"pass": 4.99,
-			"glory": 9.99,
-			"medal": 19.99,
-			"shards60": 0.99,
-			"shards300": 4.99,
-			"shards980": 14.99,
-			"shards1980": 29.99,
-			"shards3280": 49.99,
-			"shards6480": 99.99
-		}
-	},
-	{
-		"region": "US",
-		"flag": "🇺🇸",
-		"currency": "US$",
-		"prices": {
-			"pass": 4.99,
-			"glory": 9.99,
-			"medal": 19.99,
-			"shards60": 0.99,
-			"shards300": 4.99,
-			"shards980": 14.99,
-			"shards1980": 29.99,
-			"shards3280": 49.99,
-			"shards6480": 99.99
-		}
-	},
-	{
-		"region": "Vietnam",
-		"flag": "🇻🇳",
-		"currency": "₫",
-		"prices": {
-			"pass": 109000.0,
-			"glory": 219000.0,
-			"medal": 449000.0,
-			"shards60": 22000.0,
-			"shards300": 109000.0,
-			"shards980": 329000.0,
-			"shards1980": 699000.0,
-			"shards3280": 1099000.0,
-			"shards6480": 2199000.0
-		}
-	}
+    {
+        "region": "Australia",
+        "flag": "🇦🇺",
+        "currency": "AU$",
+        "prices": {
+            "pass": 7.99,
+            "glory": 14.99,
+            "medal": 29.99,
+            "shards60": 1.99,
+            "shards300": 7.99,
+            "shards980": 22.99,
+            "shards1980": 49.99,
+            "shards3280": 79.99,
+            "shards6480": 149.99
+        }
+    },
+    {
+        "region": "Brazil",
+        "flag": "🇧🇷",
+        "currency": "R$",
+        "prices": {
+            "pass": 24.9,
+            "glory": 49.9,
+            "medal": 99.9,
+            "shards60": 4.9,
+            "shards300": 24.9,
+            "shards980": 79.9,
+            "shards1980": 149.9,
+            "shards3280": 249.9,
+            "shards6480": 499.9
+        }
+    },
+    {
+        "region": "Canada",
+        "flag": "🇨🇦",
+        "currency": "C$",
+        "prices": {
+            "pass": 6.99,
+            "glory": 12.99,
+            "medal": 24.99,
+            "shards60": 1.29,
+            "shards300": 6.99,
+            "shards980": 19.99,
+            "shards1980": 39.99,
+            "shards3280": 69.99,
+            "shards6480": 129.99
+        }
+    },
+    {
+        "region": "China",
+        "flag": "🇨🇳",
+        "currency": "CNY¥",
+        "prices": {
+            "pass": 30.0,
+            "glory": 68.0,
+            "medal": 128.0,
+            "shards60": 6.0,
+            "shards300": 30.0,
+            "shards980": 98.0,
+            "shards1980": 198.0,
+            "shards3280": 328.0,
+            "shards6480": 648.0
+        }
+    },
+    {
+        "region": "EU",
+        "flag": "🇪🇺",
+        "currency": "€",
+        "prices": {
+            "pass": 5.99,
+            "glory": 9.99,
+            "medal": 20.99,
+            "shards60": 0.99,
+            "shards300": 5.99,
+            "shards980": 17.99,
+            "shards1980": 34.99,
+            "shards3280": 59.99,
+            "shards6480": 99.99
+        }
+    },
+    {
+        "region": "Hong Kong",
+        "flag": "🇭🇰",
+        "currency": "HK$",
+        "prices": {
+            "pass": 38.0,
+            "glory": null,
+            "medal": null,
+            "shards60": 8.0,
+            "shards300": 38.0,
+            "shards980": 118.0,
+            "shards1980": 228.0,
+            "shards3280": 388.0,
+            "shards6480": 788.0
+        }
+    },
+    {
+        "region": "India",
+        "flag": "🇮🇳",
+        "currency": "₹",
+        "prices": {
+            "pass": 499.0,
+            "glory": 999.0,
+            "medal": 1999.0,
+            "shards60": 99.0,
+            "shards300": 499.0,
+            "shards980": 1499.0,
+            "shards1980": 2999.0,
+            "shards3280": 4999.0,
+            "shards6480": 9900.0
+        }
+    },
+    {
+        "region": "Indonesia",
+        "flag": "🇮🇩",
+        "currency": "Rp",
+        "prices": {
+            "pass": 79000.0,
+            "glory": 159000.0,
+            "medal": 329000.0,
+            "shards60": 16000.0,
+            "shards300": 79000.0,
+            "shards980": 249000.0,
+            "shards1980": 479000.0,
+            "shards3280": 799000.0,
+            "shards6480": 1599000.0
+        }
+    },
+    {
+        "region": "Japan",
+        "flag": "🇯🇵",
+        "currency": "JPY¥",
+        "prices": {
+            "pass": 610.0,
+            "glory": 1220.0,
+            "medal": 2480.0,
+            "shards60": 120.0,
+            "shards300": 610.0,
+            "shards980": 1840.0,
+            "shards1980": 3680.0,
+            "shards3280": 6100.0,
+            "shards6480": 12000.0
+        }
+    },
+    {
+        "region": "Kazakhstan",
+        "flag": "🇰🇿",
+        "currency": "₸",
+        "prices": {
+            "pass": 1990.0,
+            "glory": null,
+            "medal": null,
+            "shards60": 420.0,
+            "shards300": 1990.0,
+            "shards980": 6190.0,
+            "shards1980": 11990.0,
+            "shards3280": 20990.0,
+            "shards6480": 40990.0
+        }
+    },
+    {
+        "region": "Korea",
+        "flag": "🇰🇷",
+        "currency": "₩",
+        "prices": {
+            "pass": 5900.0,
+            "glory": 12000.0,
+            "medal": 25000.0,
+            "shards60": 1200.0,
+            "shards300": 5900.0,
+            "shards980": 19000.0,
+            "shards1980": 37000.0,
+            "shards3280": 65000.0,
+            "shards6480": 119000.0
+        }
+    },
+    {
+        "region": "Malaysia",
+        "flag": "🇲🇾",
+        "currency": "RM",
+        "prices": {
+            "pass": 19.9,
+            "glory": 39.9,
+            "medal": 79.9,
+            "shards60": 4.9,
+            "shards300": 19.9,
+            "shards980": 59.9,
+            "shards1980": 129.9,
+            "shards3280": 199.9,
+            "shards6480": 399.9
+        }
+    },
+    {
+        "region": "Mexico",
+        "flag": "🇲🇽",
+        "currency": "Mex$",
+        "prices": {
+            "pass": 99.0,
+            "glory": 199.0,
+            "medal": 399.0,
+            "shards60": 19.0,
+            "shards300": 99.0,
+            "shards980": 299.0,
+            "shards1980": 599.0,
+            "shards3280": 999.0,
+            "shards6480": 1999.0
+        }
+    },
+    {
+        "region": "Paraguay",
+        "flag": "🇵🇾",
+        "currency": "Gs",
+        "prices": {
+            "pass": 30000.0,
+            "glory": 70000.0,
+            "medal": null,
+            "shards60": 10000.0,
+            "shards300": 30000.0,
+            "shards980": 100000.0,
+            "shards1980": 200000.0,
+            "shards3280": 350000.0,
+            "shards6480": 700000.0
+        }
+    },
+    {
+        "region": "Phillipines",
+        "flag": "🇵🇭",
+        "currency": "₱",
+        "prices": {
+            "pass": 299.0,
+            "glory": 499.0,
+            "medal": 999.0,
+            "shards60": 49.0,
+            "shards300": 299.0,
+            "shards980": 799.0,
+            "shards1980": 1790.0,
+            "shards3280": 2990.0,
+            "shards6480": 4990.0
+        }
+    },
+    {
+        "region": "Russia",
+        "flag": "🇷🇺",
+        "currency": "₽",
+        "prices": {
+            "pass": 449.0,
+            "glory": 899.0,
+            "medal": 1790.0,
+            "shards60": 99.0,
+            "shards300": 449.0,
+            "shards980": 1390.0,
+            "shards1980": 2790.0,
+            "shards3280": 4990.0,
+            "shards6480": 8990.0
+        }
+    },
+    {
+        "region": "Singapore",
+        "flag": "🇸🇬",
+        "currency": "SGD$",
+        "prices": {
+            "pass": 6.98,
+            "glory": 14.98,
+            "medal": 29.98,
+            "shards60": 1.48,
+            "shards300": 6.98,
+            "shards980": 21.98,
+            "shards1980": 42.98,
+            "shards3280": 73.98,
+            "shards6480": 149.98
+        }
+    },
+    {
+        "region": "Taiwan",
+        "flag": "🇹🇼",
+        "currency": "TWD$",
+        "prices": {
+            "pass": 170.0,
+            "glory": 330.0,
+            "medal": 670.0,
+            "shards60": 33.0,
+            "shards300": 170.0,
+            "shards980": 490.0,
+            "shards1980": 990.0,
+            "shards3280": 1690.0,
+            "shards6480": 3290.0
+        }
+    },
+    {
+        "region": "Thailand",
+        "flag": "🇹🇭",
+        "currency": "฿",
+        "prices": {
+            "pass": 179.0,
+            "glory": 349.0,
+            "medal": 729.0,
+            "shards60": 35.0,
+            "shards300": 179.0,
+            "shards980": 549.0,
+            "shards1980": 1100.0,
+            "shards3280": 1800.0,
+            "shards6480": 3700.0
+        }
+    },
+    {
+        "region": "Turkey",
+        "flag": "🇹🇷",
+        "currency": "₺",
+        "prices": {
+            "pass": 14999.0,
+            "glory": 299.99,
+            "medal": 599.99,
+            "shards60": 2999.0,
+            "shards300": 14999.0,
+            "shards980": 45999.0,
+            "shards1980": 91999.0,
+            "shards3280": 149999.0,
+            "shards6480": 299999.0
+        }
+    },
+    {
+        "region": "UK",
+        "flag": "🇬🇧",
+        "currency": "£",
+        "prices": {
+            "pass": 4.99,
+            "glory": 9.99,
+            "medal": 19.99,
+            "shards60": 0.99,
+            "shards300": 4.99,
+            "shards980": 14.99,
+            "shards1980": 29.99,
+            "shards3280": 49.99,
+            "shards6480": 99.99
+        }
+    },
+    {
+        "region": "US",
+        "flag": "🇺🇸",
+        "currency": "US$",
+        "prices": {
+            "pass": 4.99,
+            "glory": 9.99,
+            "medal": 19.99,
+            "shards60": 0.99,
+            "shards300": 4.99,
+            "shards980": 14.99,
+            "shards1980": 29.99,
+            "shards3280": 49.99,
+            "shards6480": 99.99
+        }
+    },
+    {
+        "region": "Vietnam",
+        "flag": "🇻🇳",
+        "currency": "₫",
+        "prices": {
+            "pass": 109000.0,
+            "glory": 219000.0,
+            "medal": 449000.0,
+            "shards60": 22000.0,
+            "shards300": 109000.0,
+            "shards980": 329000.0,
+            "shards1980": 699000.0,
+            "shards3280": 1099000.0,
+            "shards6480": 2199000.0
+        }
+    }
 ]

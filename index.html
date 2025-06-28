@@ -1,203 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta
-			name="description"
-			content="A comprehensive financial planning tool for your Honkai: Star Rail warp budget."
-		/>
-		<meta
-			name="keywords"
-			content="Honkai Star Rail, HSR, calculator, pity, pulls, Honkai, Star Rail, games, gacha"
-		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Aideen Audit - A comprehensive financial planning tool for your Honkai: Star Rail warp budget.</title>
-		<link rel="stylesheet" href="css/normalize.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-	</head>
-	<body>
-		<main>
-			<section id="calculator">
-				<h1>Aideen Audit</h1>
-				<button id="instructionsButtonMobile" title="Guide">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-						<path
-							fill="currentColor"
-							d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-						/>
-					</svg>
-				</button>
-				<form>
-					<label for="currentPity">
-						<img src="img/tearsOfDreams.png" alt="Tears of Dreams Icon" class="labelIcon" />
-						Current Pity
-					</label>
-					<input id="currentPity" type="number" placeholder="0" min="0" max="89" />
-					<span id="pityError" class="errorMessage" aria-live="polite"></span>
-					<label for="guaranteed">
-						<img src="img/praiseOfHighMorals.png" alt="Praise of High Morals Icon" class="labelIcon" />
-						Guaranteed Character?
-					</label>
-					<input type="checkbox" id="guaranteed" />
-					<label for="specialPasses">
-						<img src="img/specialPass.png" alt="Star Rail Special Pass Icon" class="labelIcon" />
-						Special Passes
-					</label>
-					<input id="specialPasses" type="number" placeholder="0" min="0" max="999999" />
-					<span id="passesError" class="errorMessage" aria-live="polite"></span>
-					<label for="jades">
-						<img src="img/stellarJade.png" alt="Stellar Jade Icon" class="labelIcon" />
-						Stellar Jades
-					</label>
-					<input id="jades" type="number" placeholder="0" min="0" max="9999999" />
-					<span id="jadesError" class="errorMessage" aria-live="polite"></span>
-					<fieldset id="bonusToggles">
-						<legend>&times2 Top-Up Bonuses</legend>
-						<div class="toggleAllContainer">
-							<label for="toggleAllBonuses">Toggle All</label>
-							<input type="checkbox" id="toggleAllBonuses" />
-						</div>
-						<div class="toggleGrid">
-							<div class="togglePair">
-								<label for="bonus60" class="oneiric">60</label>
-								<input type="checkbox" id="bonus60" />
-							</div>
-							<div class="togglePair">
-								<label for="bonus300" class="oneiric">300</label>
-								<input type="checkbox" id="bonus300" />
-							</div>
-							<div class="togglePair">
-								<label for="bonus980" class="oneiric">980</label>
-								<input type="checkbox" id="bonus980" />
-							</div>
-							<div class="togglePair">
-								<label for="bonus1980" class="oneiric">1980</label>
-								<input type="checkbox" id="bonus1980" />
-							</div>
-							<div class="togglePair">
-								<label for="bonus3280" class="oneiric">3280</label>
-								<input type="checkbox" id="bonus3280" />
-							</div>
-							<div class="togglePair">
-								<label for="bonus6480" class="oneiric">6480</label>
-								<input type="checkbox" id="bonus6480" />
-							</div>
-						</div>
-					</fieldset>
-					<div class="currency">
-						<label for="regionSelect">
-							<img src="img/credit.png" alt="Credit Icon" class="labelIcon" />
-							Currency
-						</label>
-						<select id="regionSelect" class="input"></select>
-					</div>
-					<button id="calculate" type="button">Calculate</button>
-				</form>
-			</section>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="A comprehensive financial planning tool for your Honkai: Star Rail warp budget.">
+        <meta name="keywords" content="Honkai Star Rail, HSR, calculator, pity, pulls, Honkai, Star Rail, games, gacha">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aideen Audit - A comprehensive financial planning tool for your Honkai: Star Rail warp budget.</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <main>
+            <section id="calculator">
+                <h1>Aideen Audit</h1>
+                <button id="instructionsButtonMobile" title="Guide">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                </button>
+                <form>
+                    <label for="currentPity">
+                        <img src="img/tearsOfDreams.png" alt="Tears of Dreams Icon" class="labelIcon">
+                        Current Pity
+                    </label>
+                    <input id="currentPity" type="number" placeholder="0" min="0" max="89">
+                    <span id="pityError" class="errorMessage" aria-live="polite"></span>
+                    <label for="guaranteed">
+                        <img src="img/praiseOfHighMorals.png" alt="Praise of High Morals Icon" class="labelIcon">
+                        Guaranteed Character?
+                    </label>
+                    <input type="checkbox" id="guaranteed">
+                    <label for="specialPasses">
+                        <img src="img/specialPass.png" alt="Star Rail Special Pass Icon" class="labelIcon">
+                        Special Passes
+                    </label>
+                    <input id="specialPasses" type="number" placeholder="0" min="0" max="999999">
+                    <span id="passesError" class="errorMessage" aria-live="polite"></span>
+                    <label for="jades">
+                        <img src="img/stellarJade.png" alt="Stellar Jade Icon" class="labelIcon">
+                        Stellar Jades
+                    </label>
+                    <input id="jades" type="number" placeholder="0" min="0" max="9999999">
+                    <span id="jadesError" class="errorMessage" aria-live="polite"></span>
+                    <fieldset id="bonusToggles">
+                        <legend>&times2 Top-Up Bonuses</legend>
+                        <div class="toggleAllContainer">
+                            <label for="toggleAllBonuses">Toggle All</label>
+                            <input type="checkbox" id="toggleAllBonuses">
+                        </div>
+                        <div class="toggleGrid">
+                            <div class="togglePair">
+                                <label for="bonus60" class="oneiric">60</label>
+                                <input type="checkbox" id="bonus60">
+                            </div>
+                            <div class="togglePair">
+                                <label for="bonus300" class="oneiric">300</label>
+                                <input type="checkbox" id="bonus300">
+                            </div>
+                            <div class="togglePair">
+                                <label for="bonus980" class="oneiric">980</label>
+                                <input type="checkbox" id="bonus980">
+                            </div>
+                            <div class="togglePair">
+                                <label for="bonus1980" class="oneiric">1980</label>
+                                <input type="checkbox" id="bonus1980">
+                            </div>
+                            <div class="togglePair">
+                                <label for="bonus3280" class="oneiric">3280</label>
+                                <input type="checkbox" id="bonus3280">
+                            </div>
+                            <div class="togglePair">
+                                <label for="bonus6480" class="oneiric">6480</label>
+                                <input type="checkbox" id="bonus6480">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="currency">
+                      <label for="regionSelect">
+                        <img src="img/credit.png" alt="Credit Icon" class="labelIcon">
+                        Currency
+                      </label>
+                      <select id="regionSelect" class="input"></select>
+                    </div>
+                    <button id="calculate" type="button">Calculate</button>
+                </form>
+            </section>
 
-			<section id="output">
-				<button id="toggleInstructionsButton" title="Toggle Guide" style="display: none">
-					<svg
-						class="iconClose"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						width="24"
-						height="24"
-					>
-						<path
-							fill="currentColor"
-							d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-						/>
-					</svg>
-					<svg class="iconInfo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-						<path
-							fill="currentColor"
-							d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-						/>
-					</svg>
-				</button>
-				<div id="instructionsPanel">
-					<h4>Understanding The Pity System</h4>
-					<ul>
-						<li>
-							<strong>Hard Pity:</strong> You are guaranteed to get a 5-star character within 90 pulls of
-							your last 5-star pull.
-						</li>
-						<li>
-							<strong>Soft Pity:</strong> The chance of getting a 5-star character dramatically increases
-							after ~75 pulls.
-						</li>
-						<li>
-							<strong>The 50/50:</strong> When you pull a 5-star, there's a 50% chance it will be the
-							limited banner character, and a 50% chance it will be a standard banner character.
-						</li>
-						<li>
-							<strong>Guaranteed Character:</strong> If you lose the 50/50 and get a standard character,
-							your next 5-star pull is 100% guaranteed to be the limited banner character.
-						</li>
-					</ul>
-					<h4>Top-Up Bonus</h4>
-					<ul>
-						<li>
-							<strong><span class="oneiric"></span>Oneiric Shards:</strong> Honkai: Star Rail's premium
-							equivalent to Stellar Jades. They can be purchased in packs of 60, 300, 980, 1980, 3280, and
-							6480.
-						</li>
-						<li>
-							<strong>First Recharge Bonus:</strong> The first time you purchase an Oneiric Shard pack,
-							the amount of currency you obtain from it is doubled. In this calculator, oneiric packs with
-							a double bonus will be highlighted.
-							<ul>
-								<li>Bonus active: <span class="oneiric bonusActive">60</span> (120 shards)</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
+            <section id="output">
+                <button id="toggleInstructionsButton" title="Toggle Guide" style="display: none;">
+                    <svg class="iconClose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                    <svg class="iconInfo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                </button>
+                <div id="instructionsPanel">
+                    <h4>Understanding The Pity System</h4>
+                    <ul>
+                        <li>
+                            <strong>Hard Pity:</strong> You are guaranteed to get a 5-star character within 90 pulls of your last 5-star pull.
+                        </li>
+                        <li>
+                            <strong>Soft Pity:</strong> The chance of getting a 5-star character dramatically increases after ~75 pulls.
+                        </li>
+                        <li>
+                            <strong>The 50/50:</strong> When you pull a 5-star, there's a 50% chance it will be the limited banner character, and a 50% chance it will be a standard banner character.
+                        </li>
+                        <li>
+                            <strong>Guaranteed Character:</strong> If you lose the 50/50 and get a standard character, your next 5-star pull is 100% guaranteed to be the limited banner character.
+                        </li>
+                    </ul>
+                    <h4>Top-Up Bonus</h4>
+                    <ul>
+                        <li><strong><span class="oneiric"></span>Oneiric Shards:</strong> Honkai: Star Rail's premium equivalent to Stellar Jades. They can be purchased in packs of 60, 300, 980, 1980, 3280, and 6480.</li>
+                        <li>
+                            <strong>First Recharge Bonus:</strong> The first time you purchase an Oneiric Shard pack, the amount of currency you obtain from it is doubled. In this calculator, oneiric packs with a double bonus will be highlighted.
+                                <ul>
+                                    <li>Bonus active: <span class="oneiric bonusActive">60</span> (120 shards)</li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
 
-				<div id="resultsPanel" style="display: none">
-					<h2 id="pullsTotal">You have <span class="accentGold">0</span> available pulls.</h2>
-					<table>
-						<thead>
-							<tr>
-								<th></th>
-								<th>Soft Pity (~75)</th>
-								<th>Hard Pity (90)</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Passes Needed</td>
-								<td class="resultValue" id="passesSoft">0</td>
-								<td class="resultValue" id="passesHard">0</td>
-							</tr>
-							<tr>
-								<td>Jades Needed</td>
-								<td class="resultValue" id="jadesSoft">0</td>
-								<td class="resultValue" id="jadesHard">0</td>
-							</tr>
-							<tr>
-								<td>Oneiric Shard Packs Needed</td>
-								<td class="resultValue oneiricList" id="packsSoft">None</td>
-								<td class="resultValue oneiricList" id="packsHard">None</td>
-							</tr>
-							<tr>
-								<td>Total Cost</td>
-								<td class="resultValue" id="costSoft">0.00</td>
-								<td class="resultValue" id="costHard">0.00</td>
-							</tr>
-						</tbody>
-					</table>
-					<div id="gifContainer">
-						<img src="img/aventurine.gif" alt="Animated gif of Aventurine snapping his fingers" />
-					</div>
-				</div>
-			</section>
-		</main>
-		<a href="https://github.com/kitbur/aideen-audit" id="githubLink" target="_blank" rel="noopener noreferrer">
-			<img src="img/github.svg" alt="GitHub Repository" />
-		</a>
+                <div id="resultsPanel" style="display: none;">
+                    <h2 id="pullsTotal">You have <span class="accentGold">0</span> available pulls.</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Soft Pity (~75)</th>
+                                <th>Hard Pity (90)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Passes Needed</td>
+                                <td class="resultValue" id="passesSoft">0</td>
+                                <td class="resultValue" id="passesHard">0</td>
+                            </tr>
+                            <tr>
+                                <td>Jades Needed</td>
+                                <td class="resultValue" id="jadesSoft">0</td>
+                                <td class="resultValue" id="jadesHard">0</td>
+                            </tr>
+                            <tr>
+                                <td>Oneiric Shard Packs Needed</td>
+                                <td class="resultValue oneiricList" id="packsSoft">None</td>
+                                <td class="resultValue oneiricList" id="packsHard">None</td>
+                            </tr>
+                            <tr>
+                                <td>Total Cost</td>
+                                <td class="resultValue" id="costSoft">0.00</td>
+                                <td class="resultValue" id="costHard">0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="gifContainer">
+                        <img src="img/aventurine.gif" alt="Animated gif of Aventurine snapping his fingers">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <a href="https://github.com/kitbur/aideen-audit" id="githubLink" target="_blank" rel="noopener noreferrer">
+            <img src="img/github.svg" alt="GitHub Repository">
+        </a>
 
-		<script type="module" src="js/main.js" defer></script>
-	</body>
+        <script type="module" src="js/main.js" defer></script>
+    </body>
 </html>

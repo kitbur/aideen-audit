@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '0 0 * * 0'
   workflow_dispatch:
+  ##### Remove after testing #####
+  push:
+    branches:
+      - feature/auto-get-prices
+  ##### Remove after testing #####
 
 jobs:
   update-data:

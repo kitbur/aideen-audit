@@ -133,10 +133,3 @@ async function initialize() {
 
 // Run the app once the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", initialize)
-
-// Banner API test
-import { fetchStarRailBanners } from "./modules/api.js"
-
-fetchStarRailBanners().then((banners) => {
-	console.log("Received banners:", banners)
-})

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 -   Get banner data from the [HoYoverse API](https://github.com/torikushiii/hoyoverse-api).
+-   Automated daily fetching of banner data using GitHub Actions.
 
 ### Changed
 

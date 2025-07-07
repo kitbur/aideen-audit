@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+-   Get banner data from the [HoYoverse API](https://github.com/torikushiii/hoyoverse-api).
+
+### Changed
+
+-   Updated project to `"type": "module"` in `package.json` to enable ES modules support.
+-   Refactored `api.js` with JSDoc comments.
+
 ## [1.1.0] - 2025-06-28
 
 ### Added

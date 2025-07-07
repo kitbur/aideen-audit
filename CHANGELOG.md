@@ -9,8 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
--   Integrated an Express.js backend server to serve live banner data from the [HoYoverse API](https://github.com/torikushiii/hoyoverse-api).
--   Implemented backend API proxying to fetch Honkai: Star Rail banner information dynamically.
+-   Get banner data from the [HoYoverse API](https://github.com/torikushiii/hoyoverse-api).
 
 ### Changed
 

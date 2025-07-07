@@ -4,8 +4,7 @@
   "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "start": "node server.js"
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -33,7 +32,6 @@
     "esbuild": "^0.25.5",
     "estree-walker": "^3.0.3",
     "expect-type": "^1.2.1",
-    "express": "^5.1.0",
     "fdir": "^6.4.6",
     "js-tokens": "^9.0.1",
     "loupe": "^3.1.4",

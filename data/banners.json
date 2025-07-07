@@ -1,0 +1,287 @@
+[
+    {
+        "id": "36",
+        "name": "",
+        "version": "3.4",
+        "characters": [
+            {
+                "id": "1408",
+                "name": "Phainon",
+                "rarity": "5",
+                "element": "1",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/7c8f07f33faf8784d11b1187f3bb8433.png"
+            },
+            {
+                "id": "1403",
+                "name": "Tribbie",
+                "rarity": "5",
+                "element": "32",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/519043e9502c88e24dc85d2392a3fc8f.png"
+            },
+            {
+                "id": "1313",
+                "name": "Sunday",
+                "rarity": "5",
+                "element": "64",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/0b8a20b2c48f27de7349aef4daa5ca84.png"
+            },
+            {
+                "id": "1306",
+                "name": "Sparkle",
+                "rarity": "5",
+                "element": "32",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/73bd6ae0ed1c9bbc5732acadb3f96000.png"
+            },
+            {
+                "id": "1202",
+                "name": "Tingyun",
+                "rarity": "4",
+                "element": "8",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/f98bcd7cae631ca7fc2cf39291b751d6.png"
+            },
+            {
+                "id": "1001",
+                "name": "March 7th",
+                "rarity": "4",
+                "element": "4",
+                "path": "6",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/e09c56d12556c9d91a041df09e46a732.png"
+            },
+            {
+                "id": "1207",
+                "name": "Yukong",
+                "rarity": "4",
+                "element": "64",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/4b3b221e088edd095ea5aa029bc5809a.png"
+            }
+        ],
+        "light_cones": [],
+        "start_time": 1751421600,
+        "end_time": 1753268340
+    },
+    {
+        "id": "38",
+        "name": "",
+        "version": "3.4",
+        "characters": [
+            {
+                "id": "1014",
+                "name": "Saber",
+                "rarity": "5",
+                "element": "16",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/pre_webtool_cn/item_icon_u9f6ub/c41101973988dc50e751ddffd8cf18a6.png"
+            },
+            {
+                "id": "1015",
+                "name": "Archer",
+                "rarity": "5",
+                "element": "32",
+                "path": "2",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/pre_webtool_cn/item_icon_u9f6ub/f47543476c39d68d91500ead1cb6e8a3.png"
+            }
+        ],
+        "light_cones": [],
+        "start_time": 1752231600,
+        "end_time": 0
+    },
+    {
+        "id": "34",
+        "name": "",
+        "version": "3.4",
+        "characters": [
+            {
+                "id": "1310",
+                "name": "Firefly",
+                "rarity": "5",
+                "element": "2",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/45c4e43920c6d7c94e5e74d22dd02552.png"
+            },
+            {
+                "id": "1212",
+                "name": "Jingliu",
+                "rarity": "5",
+                "element": "4",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/c7f07faf3112edb5baf5f7c1ec8b7081.png"
+            },
+            {
+                "id": "1205",
+                "name": "Blade",
+                "rarity": "5",
+                "element": "16",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/95bba00ebbad626a85c05aaac038861f.png"
+            },
+            {
+                "id": "1215",
+                "name": "Hanya",
+                "rarity": "4",
+                "element": "1",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/3ee9878053e8a00a172306f65c9a9333.png"
+            },
+            {
+                "id": "1110",
+                "name": "Lynx",
+                "rarity": "4",
+                "element": "32",
+                "path": "7",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/675d705750e1f75ef2c74c758f23ebce.png"
+            },
+            {
+                "id": "1111",
+                "name": "Luka",
+                "rarity": "4",
+                "element": "1",
+                "path": "5",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/6efc3ae35245b38145fd4113558312e6.png"
+            }
+        ],
+        "light_cones": [],
+        "start_time": 1753268400,
+        "end_time": 1755007140
+    },
+    {
+        "id": "37",
+        "name": "",
+        "version": "3.4",
+        "characters": [],
+        "light_cones": [
+            {
+                "id": "23044",
+                "name": "Thus Burns the Dawn",
+                "rarity": "5",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/86d86bbe8bbb6a12cc0cfcd6d9f961b5.png"
+            },
+            {
+                "id": "23038",
+                "name": "If Time Were a Flower",
+                "rarity": "5",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/fe52d3f18831b7de1ca1f3e3569b2f34.png"
+            },
+            {
+                "id": "23034",
+                "name": "A Grounded Ascent",
+                "rarity": "5",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/b8a66539e84cde4d8d6d3154ca47e4d4.png"
+            },
+            {
+                "id": "23021",
+                "name": "Earthly Escapade",
+                "rarity": "5",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/47a7dbdb7b7ef855958f474e07f613f3.png"
+            },
+            {
+                "id": "21054",
+                "name": "The Story's Next Page",
+                "rarity": "4",
+                "path": "8",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/78465f341cb694650341706bd092e0ce.png"
+            },
+            {
+                "id": "21011",
+                "name": "Planetary Rendezvous",
+                "rarity": "4",
+                "path": "4",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/58b00e65fab378a5ccc7fcc092e9bed6.png"
+            },
+            {
+                "id": "21019",
+                "name": "Under the Blue Sky",
+                "rarity": "4",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/21d7f11d93fcf00dee55efb31e2511ef.png"
+            }
+        ],
+        "start_time": 1751421600,
+        "end_time": 1753268340
+    },
+    {
+        "id": "40",
+        "name": "",
+        "version": "3.4",
+        "characters": [],
+        "light_cones": [
+            {
+                "id": "23045",
+                "name": "A Thankless Coronation",
+                "rarity": "5",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/pre_webtool_cn/item_icon_u9f6ub/1a2e208c867a899adbc4b4a4630cc571.png"
+            },
+            {
+                "id": "23046",
+                "name": "The Hell Where Ideals Burn",
+                "rarity": "5",
+                "path": "2",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/pre_webtool_cn/item_icon_u9f6ub/0c4759a8edd94903e3b454743607ad1a.png"
+            }
+        ],
+        "start_time": 1752231600,
+        "end_time": 0
+    },
+    {
+        "id": "35",
+        "name": "",
+        "version": "3.4",
+        "characters": [],
+        "light_cones": [
+            {
+                "id": "23025",
+                "name": "Whereabouts Should Dreams Rest",
+                "rarity": "5",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/06781bfdf88c6e299c1360f4355a51eb.png"
+            },
+            {
+                "id": "23014",
+                "name": "I Shall Be My Own Sword",
+                "rarity": "5",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/ebf60594d1d49f79bdf5e9d58be765f8.png"
+            },
+            {
+                "id": "23009",
+                "name": "The Unreachable Side",
+                "rarity": "5",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/62ccfc85c69976e258ef7892c203e7aa.png"
+            },
+            {
+                "id": "21012",
+                "name": "A Secret Vow",
+                "rarity": "4",
+                "path": "1",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/da37d753ea22c1a231c51356d25e6e09.png"
+            },
+            {
+                "id": "21017",
+                "name": "Subscribe for More!",
+                "rarity": "4",
+                "path": "2",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/4e4fca62beaa1446e8393b1168183e54.png"
+            },
+            {
+                "id": "21015",
+                "name": "Resolution Shines As Pearls of Sweat",
+                "rarity": "4",
+                "path": "5",
+                "icon": "https://act-webstatic.hoyoverse.com/darkmatter/hkrpg/prod_gf_cn/item_icon_u698dd/1c23fece4348381745e2f76d1fbfea87.png"
+            }
+        ],
+        "start_time": 1753268400,
+        "end_time": 1755007140
+    }
+]

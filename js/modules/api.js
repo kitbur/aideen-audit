@@ -20,13 +20,13 @@ export async function fetchPriceData() {
  */
 export async function fetchStarRailBanners() {
 	try {
-		const response = await fetch("/api/banners")
+		const response = await fetch("./data/banners.json")
 		if (!response.ok) {
 			throw new Error(`HTTP error! Status: ${response.status}`)
 		}
 		return await response.json()
 	} catch (error) {
-		console.error("Failed to fetch banners:", error)
+		console.error("Failed to load banners:", error)
 		return []
 	}
 }

@@ -4,6 +4,5 @@ data/
 img/
 css/normalize.css
 node_modules/
-package.json
 package-lock.json
 LICENSE

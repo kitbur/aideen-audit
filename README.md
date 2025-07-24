@@ -18,12 +18,12 @@ Aideen Audit is a comprehensive financial planning tool for Honkai: Star Rail pl
 
 ## Key Features
 
--   **Pity Planning:** Calculates the exact pulls needed for both soft (75/150) and hard (90/180) pity thresholds, accounting for your guaranteed status.
--   **Real-World Cost Analysis:** See the estimated total cost of your required pulls, calculated using a cost-effective combination of Oneiric Shard packs.
--   **Global Currency Support:** Select your local region to get accurate pricing data and cost estimates in your own currency. No more manual conversions!
--   **Resource Tracking:** Input your current pity, Stellar Jades, and Special Passes.
--   **First-Time Bonus Modeling:** Toggle first-time purchase bonuses for each individual Oneiric Shard pack to see how they impact your overall cost, allowing for precise budget optimization.
--   **Shopping List:** Generates an optimal shopping list of efficient top-up purchases.
+- **Pity Planning:** Calculates the exact pulls needed for both soft (75/150) and hard (90/180) pity thresholds, accounting for your guaranteed status.
+- **Real-World Cost Analysis:** See the estimated total cost of your required pulls, calculated using a cost-effective combination of Oneiric Shard packs.
+- **Global Currency Support:** Select your local region to get accurate pricing data and cost estimates in your own currency. No more manual conversions!
+- **Resource Tracking:** Input your current pity, Stellar Jades, and Special Passes.
+- **First-Time Bonus Modeling:** Toggle first-time purchase bonuses for each individual Oneiric Shard pack to see how they impact your overall cost, allowing for precise budget optimization.
+- **Shopping List:** Generates an optimal shopping list of efficient top-up purchases.
 
 ## Technologies
 

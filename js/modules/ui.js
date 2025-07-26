@@ -1,57 +1,62 @@
 import { state } from "./state.js"
 
+const $ = (selector) => document.querySelector(selector)
+const $$ = (selector) => document.querySelectorAll(selector)
+
 export const DOMElements = {
   // Buttons
-  calculateButton: document.querySelector("#calculate"),
-  instructionsToggle: document.querySelector("#toggleInstructionsButton"),
-  instructionsButtonMobile: document.querySelector("#instructionsButtonMobile"),
-  iconClose: document.querySelector("#toggleInstructionsButton .iconClose"),
-  iconInfo: document.querySelector("#toggleInstructionsButton .iconInfo"),
+  calculateButton: $("#calculate"),
+  instructionsToggle: $("#toggleInstructionsButton"),
+  instructionsButtonMobile: $("#instructionsButtonMobile"),
+  toggleAllBonuses: $("#toggleAllBonuses"),
+
+  // Icons
+  iconClose: $("#toggleInstructionsButton .iconClose"),
+  iconInfo: $("#toggleInstructionsButton .iconInfo"),
 
   // User Input Fields
-  currentPity: document.querySelector("#currentPity"),
-  guaranteed: document.querySelector("#guaranteed"),
-  specialPasses: document.querySelector("#specialPasses"),
-  jades: document.querySelector("#jades"),
-  regionSelector: document.querySelector("#regionSelect"),
+  currentPity: $("#currentPity"),
+  guaranteed: $("#guaranteed"),
+  specialPasses: $("#specialPasses"),
+  jades: $("#jades"),
+  regionSelector: $("#regionSelect"),
 
   // Bonus Toggles
-  toggleAllBonuses: document.querySelector("#toggleAllBonuses"),
   bonusToggles: {
-    shards60: document.querySelector("#bonus60"),
-    shards300: document.querySelector("#bonus300"),
-    shards980: document.querySelector("#bonus980"),
-    shards1980: document.querySelector("#bonus1980"),
-    shards3280: document.querySelector("#bonus3280"),
-    shards6480: document.querySelector("#bonus6480"),
+    shards60: $("#bonus60"),
+    shards300: $("#bonus300"),
+    shards980: $("#bonus980"),
+    shards1980: $("#bonus1980"),
+    shards3280: $("#bonus3280"),
+    shards6480: $("#bonus6480"),
   },
 
   // Error Messages
   errorMessages: {
-    pity: document.querySelector("#pityError"),
-    passes: document.querySelector("#passesError"),
-    jades: document.querySelector("#jadesError"),
+    pity: $("#pityError"),
+    passes: $("#passesError"),
+    jades: $("#jadesError"),
   },
 
   // Output Elements
-  outputSection: document.querySelector("#output"),
-  gif: document.querySelector("#gifContainer img"),
+  outputSection: $("#output"),
+  gif: $("#gifContainer img"),
   panels: {
-    instructions: document.querySelector("#instructionsPanel"),
-    results: document.querySelector("#resultsPanel"),
+    instructions: $("#instructionsPanel"),
+    results: $("#resultsPanel"),
   },
 
   // Calculator Result Output
-  resultCells: document.querySelectorAll(".resultValue"),
-  pullsTotalDisplay: document.querySelector("#pullsTotal"),
-  passesSoftDisplay: document.querySelector("#passesSoft"),
-  passesHardDisplay: document.querySelector("#passesHard"),
-  jadesSoftDisplay: document.querySelector("#jadesSoft"),
-  jadesHardDisplay: document.querySelector("#jadesHard"),
-  packsSoftDisplay: document.querySelector("#packsSoft"),
-  packsHardDisplay: document.querySelector("#packsHard"),
-  costSoftDisplay: document.querySelector("#costSoft"),
-  costHardDisplay: document.querySelector("#costHard"),
+  resultCells: $$(".resultValue"),
+  pullsTotalDisplay: $("#pullsTotal"),
+  passesSoftDisplay: $("#passesSoft"),
+  passesHardDisplay: $("#passesHard"),
+  jadesSoftDisplay: $("#jadesSoft"),
+  jadesHardDisplay: $("#jadesHard"),
+  packsSoftDisplay: $("#packsSoft"),
+  packsHardDisplay: $("#packsHard"),
+  costSoftDisplay: $("#costSoft"),
+  costHardDisplay: $("#costHard"),
 }
 
 // User input values

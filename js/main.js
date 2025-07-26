@@ -115,6 +115,64 @@ function handleShowMobileInstructions() {
 // Initialization
 // ===============
 
+function registerEventListeners() {
+  const listeners = [
+    {
+      element: ui.DOMElements.calculateButton,
+      event: "click",
+      handler: handleCalculateClick,
+    },
+    {
+      element: ui.DOMElements.instructionsToggle,
+      event: "click",
+      handler: ui.togglePanels,
+    },
+    {
+      element: ui.DOMElements.gif,
+      event: "animationend",
+      handler: ui.resetGifAnimation,
+    },
+    {
+      element: ui.DOMElements.instructionsButtonMobile,
+      event: "click",
+      handler: handleShowMobileInstructions,
+    },
+    {
+      elements: [
+        ui.DOMElements.currentPity,
+        ui.DOMElements.specialPasses,
+        ui.DOMElements.jades,
+      ],
+      event: "input",
+      handler: validateNumberInput,
+    },
+    {
+      element: ui.DOMElements.toggleAllBonuses,
+      event: "change",
+      handler: handleToggleAllBonuses,
+    },
+    {
+      elements: Object.values(ui.DOMElements.bonusToggles),
+      event: "change",
+      handler: handleBonusToggle,
+    },
+    {
+      element: ui.DOMElements.regionSelector,
+      event: "change",
+      handler: (e) => updateRegion(e.target.value),
+    },
+  ]
+
+  listeners.forEach(({ element, elements, event, handler }) => {
+    const targets = element ? [element] : elements
+    targets.forEach((target) => {
+      if (target) {
+        target.addEventListener(event, handler)
+      }
+    })
+  })
+}
+
 async function initialize() {
   // Load data and populate state
   const priceData = await api.fetchPriceData()
@@ -125,36 +183,7 @@ async function initialize() {
   checkFormValidity()
 
   // Attach all event listeners
-  ui.DOMElements.calculateButton.addEventListener("click", handleCalculateClick)
-  ui.DOMElements.instructionsToggle.addEventListener("click", ui.togglePanels)
-  ui.DOMElements.gif.addEventListener("animationend", ui.resetGifAnimation)
-  ui.DOMElements.instructionsButtonMobile.addEventListener(
-    "click",
-    handleShowMobileInstructions,
-  )
-
-  // Input validation listeners
-  ;[
-    ui.DOMElements.currentPity,
-    ui.DOMElements.specialPasses,
-    ui.DOMElements.jades,
-  ].forEach((input) => {
-    input.addEventListener("input", validateNumberInput)
-  })
-
-  // Bonus toggle listeners
-  ui.DOMElements.toggleAllBonuses.addEventListener(
-    "change",
-    handleToggleAllBonuses,
-  )
-  Object.values(ui.DOMElements.bonusToggles).forEach((checkbox) => {
-    checkbox.addEventListener("change", handleBonusToggle)
-  })
-
-  // Region change listener
-  ui.DOMElements.regionSelector.addEventListener("change", (e) =>
-    updateRegion(e.target.value),
-  )
+  registerEventListeners()
 }
 
 // Run the app once the DOM is fully loaded

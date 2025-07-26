@@ -10,15 +10,7 @@
 import * as api from "./modules/api.js"
 import * as ui from "./modules/ui.js"
 import * as calculator from "./modules/calculator.js"
-import {
-  state,
-  setPriceData,
-  updateUserInput,
-  updateRegion,
-  updateBonusToggle,
-  updateAllBonuses,
-  setHasCalculated,
-} from "./modules/state.js"
+import { state, updateState, updateUserInput } from "./modules/state.js"
 import { validateNumberInput, checkFormValidity } from "./modules/validation.js"
 
 // ===============
@@ -55,7 +47,7 @@ function handleCalculateClick(event) {
     selectedRegionData,
   )
 
-  setHasCalculated(true)
+  updateState("hasCalculated", true)
 
   // Pass the results to the UI to be displayed
   ui.displayResults({ totalPasses, needed, costs })
@@ -75,7 +67,7 @@ function handleBonusToggle(event) {
     (k) => ui.DOMElements.bonusToggles[k] === event.target,
   )
   if (key) {
-    updateBonusToggle(key, event.target.checked)
+    updateState(`bonusToggles.${key}`, event.target.checked)
     ui.updateBonusCheckbox(key, event.target.checked)
   }
   const allChecked = Object.values(state.bonusToggles).every(Boolean)
@@ -84,7 +76,7 @@ function handleBonusToggle(event) {
 
 function handleToggleAllBonuses(event) {
   const isChecked = event.target.checked
-  updateAllBonuses(isChecked)
+  updateState("bonusToggles.all", isChecked)
   for (const key in state.bonusToggles) {
     ui.DOMElements.bonusToggles[key].checked = isChecked
     ui.updateBonusCheckbox(key, isChecked)
@@ -159,7 +151,7 @@ function registerEventListeners() {
     {
       element: ui.DOMElements.regionSelector,
       event: "change",
-      handler: (e) => updateRegion(e.target.value),
+      handler: (e) => updateState("region", e.target.value),
     },
   ]
 
@@ -176,7 +168,7 @@ function registerEventListeners() {
 async function initialize() {
   // Load data and populate state
   const priceData = await api.fetchPriceData()
-  setPriceData(priceData)
+  updateState("priceData", priceData)
 
   // Initial UI setup
   ui.populateRegionSelector(state.priceData)

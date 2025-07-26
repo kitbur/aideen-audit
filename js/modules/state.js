@@ -18,28 +18,26 @@ export const state = {
   },
 }
 
-export function setPriceData(data) {
-  state.priceData = data
+export function updateState(key, value) {
+  if (Object.prototype.hasOwnProperty.call(state, key)) {
+    state[key] = value
+  } else if (key.startsWith("userInput.")) {
+    const subKey = key.split(".")[1]
+    state.userInput[subKey] = value
+  } else if (key.startsWith("bonusToggles.")) {
+    const subKey = key.split(".")[1]
+    if (subKey === "all") {
+      for (const k in state.bonusToggles) {
+        state.bonusToggles[k] = value
+      }
+    } else {
+      state.bonusToggles[subKey] = value
+    }
+  } else {
+    console.warn(`State key "${key}" not found.`)
+  }
 }
 
 export function updateUserInput(inputs) {
   state.userInput = { ...state.userInput, ...inputs }
-}
-
-export function updateRegion(newRegion) {
-  state.region = newRegion
-}
-
-export function updateBonusToggle(key, value) {
-  state.bonusToggles[key] = value
-}
-
-export function updateAllBonuses(value) {
-  for (const key in state.bonusToggles) {
-    state.bonusToggles[key] = value
-  }
-}
-
-export function setHasCalculated(value) {
-  state.hasCalculated = value
 }

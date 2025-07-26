@@ -1,7 +1,25 @@
 import { DOMElements } from "./ui.js"
 
+const validationConfig = {
+  currentPity: {
+    errorElement: DOMElements.errorMessages.pity,
+  },
+  specialPasses: {
+    errorElement: DOMElements.errorMessages.passes,
+  },
+  jades: {
+    errorElement: DOMElements.errorMessages.jades,
+  },
+}
+
+function setErrorMessage(input, message) {
+  const config = validationConfig[input.id]
+  if (config && config.errorElement) {
+    config.errorElement.textContent = message
+  }
+}
+
 // Validates a number input field against its min/max attributes
-// Shows an error message and a shake animation on invalid input
 export function validateNumberInput(event) {
   const input = event.target
 
@@ -15,12 +33,7 @@ export function validateNumberInput(event) {
   // If the field is cleared, remove the invalid state
   if (input.value === "") {
     input.classList.remove("invalid")
-    // Clear any previous error messages
-    if (input.id === "currentPity")
-      DOMElements.errorMessages.pity.textContent = ""
-    if (input.id === "specialPasses")
-      DOMElements.errorMessages.passes.textContent = ""
-    if (input.id === "jades") DOMElements.errorMessages.jades.textContent = ""
+    setErrorMessage(input, "")
     checkFormValidity()
     return
   }
@@ -28,48 +41,29 @@ export function validateNumberInput(event) {
   const value = parseInt(input.value)
 
   if (value > max || value < min) {
-    input.classList.add("invalid")
-    input.classList.add("shakeError")
+    input.classList.add("invalid", "shakeError")
 
-    let errorMessage = ""
-    if (value > max) {
-      errorMessage = `Value cannot be more than ${max}.`
-    } else if (value < min) {
-      errorMessage = `Value cannot be less than ${min}.`
-    }
-
-    if (input.id === "currentPity") {
-      DOMElements.errorMessages.pity.textContent = errorMessage
-    } else if (input.id === "specialPasses") {
-      DOMElements.errorMessages.passes.textContent = errorMessage
-    } else if (input.id === "jades") {
-      DOMElements.errorMessages.jades.textContent = errorMessage
-    }
+    const errorMessage =
+      value > max
+        ? `Value cannot be more than ${max}.`
+        : `Value cannot be less than ${min}.`
+    setErrorMessage(input, errorMessage)
 
     // Correct the value after the shake animation finishes
     const handleAnimationEnd = () => {
-      const correctedValue = value > max ? max : min
-      input.value = correctedValue
-
-      input.classList.remove("invalid")
       input.classList.remove("shakeError")
-
-      // Clear the error message after correcting the value
-      if (input.id === "currentPity")
-        DOMElements.errorMessages.pity.textContent = ""
-      if (input.id === "specialPasses")
-        DOMElements.errorMessages.passes.textContent = ""
-      if (input.id === "jades") DOMElements.errorMessages.jades.textContent = ""
-
+      if (value > max) input.value = max
+      if (value < min) input.value = min
+      input.classList.remove("invalid")
+      setErrorMessage(input, "")
       checkFormValidity()
     }
 
     input.addEventListener("animationend", handleAnimationEnd, { once: true })
   } else {
     input.classList.remove("invalid")
-    // Clear any previous error messages if the input is now valid
-    if (input.id === "currentPity")
-      DOMElements.errorMessages.pity.textContent = ""
+    setErrorMessage(input, "")
+    DOMElements.errorMessages.pity.textContent = ""
     if (input.id === "specialPasses")
       DOMElements.errorMessages.passes.textContent = ""
     if (input.id === "jades") DOMElements.errorMessages.jades.textContent = ""
@@ -77,7 +71,7 @@ export function validateNumberInput(event) {
   checkFormValidity()
 }
 
-// Checks if any of the validated inputs are invalid and disables the calculate button accordingly
+// Disable the calculate button if any input is invalid
 export function checkFormValidity() {
   const validatedInputs = [
     DOMElements.currentPity,
